@@ -3,7 +3,7 @@
 
 // [number of languages][number of texts]
 
-static const char* const myLanguage[23][330] PROGMEM = {
+static const char* const myLanguage[23][350] PROGMEM = {
   { "English", // English
     "Rotary direction changed", // 1
     "Please release button", // 2
@@ -286,8 +286,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Range", // 279
     "Full", // 280
     "Wait time on\nsignal only", // 281
-    "Press highlighted corner", // 282
-    "To calibrate touchscreen", // 283
+    "Press the highlighted corner", // 282
+    "Touchscreen calibration", // 283
     "Hold BW button to\nstop DX scanner", // 284
     "Select Bandwidth", // 285
     "Your logbook", // 286
@@ -333,7 +333,27 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Gateway", // 326
     "Direct tuning", // 327
     "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "PRESS ANY BUTTON TO CLOSE", // 329
+    "Input settings", // 330
+    "Frequency keypad", // 331
+    "INPUT", // 332
+    "MODE: BACK", // 333
+    "Device settings", // 334
+    "DEVICE", // 335
+    "Screen settings", // 336
+    "SCREEN", // 337
+    "Reverse encoder", // 338
+    "Optical encoder", // 339
+    "Flip screen 180°", // 340
+    "Invert colors", // 341
+    "Analog meter", // 342
+    "Factory reset", // 343
+    "No", // 344
+    "Yes", // 345
+    "Start calibration?", // 346
+    "Erase settings\nand presets?", // 347
+    "Release all\ncontrols", // 348
+    "Full scale" // 349
   },
 
   { "Nederlands", // Dutch
@@ -341,7 +361,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Laat aub de knop los", // 2
     "Scherm gedraaid", // 3
     "Kalibratie analoge meter", // 4
-    "USB mode", // 5
+    "USB-modus", // 5
     "encoder ingesteld als optisch", // 6
     "encoder ingesteld als standaard", // 7
     "FM/AM ontvanger", // 8
@@ -357,7 +377,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Laag signaal grens", // 18
     "Helderheid", // 19
     "Audio volume", // 20
-    "Converter offset", // 21
+    "Converterafwijking", // 21
     "Band ondergrens", // 22
     "Band bovengrens", // 23
     "Signaalafwijking", // 24
@@ -379,8 +399,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Kies taal", // 40
     "PI gebonden CT sync", // 41
     "Fout! Geen RDS!", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Zacht dempen FM", // 43
+    "Zacht dempen AM", // 44
     "Piep op bandeinde", // 45
     "Regio", // 46
     "Europa", // 47
@@ -394,7 +414,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Verbinden met Wi-Fi...", // 55
     "MISLUKT!", // 56
     "VERBONDEN!", // 57
-    "Stationlist client IP", // 58
+    "IP Stationlist-client", // 58
     "Toon SW golflengte", // 59
     "RDS filter", // 60
     "Toon PI fouten", // 61
@@ -410,7 +430,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Basis code:", // 71
     "Bijgedragen:", // 72
     "Onbekend", // 73
-    "Screensaver opties", // 74
+    "Schermbeveiligingsopties", // 74
     "Auto uitschakelen", // 75
     "Scherm uit", // 76
     "Thema", // 77
@@ -446,8 +466,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Stop scherm ontwaken bij afstemmen", // 107
     "Model keuze", // 108
     "Basis", // 109
-    "Portable", // 110
-    "Portable touch", // 111
+    "Draagbaar", // 110
+    "Draagbaar met touch", // 111
     "Titel", // 112
     "Album", // 113
     "Nummer", // 114
@@ -468,7 +488,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Dagelijkse grap", // 129
     "Gezondheid", // 130
     "Evenement", // 131
-    "Scene", // 132
+    "Scène", // 132
     "Bioscoop", // 133
     "TV", // 134
     "Datum/tijd", // 135
@@ -483,18 +503,18 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Nu", // 144
     "Straks", // 145
     "Deel", // 146
-    "Host", // 147
+    "Presentator", // 147
     "Regiseur", // 148
     "Frequentie", // 149
-    "Homepage", // 150
+    "Startpagina", // 150
     "Subkanaal", // 151
-    "Hotline", // 152
+    "Informatielijn", // 152
     "Studio telefoon", // 153
     "Telefoon", // 154
-    "SMS studio", // 155
+    "Studio-sms", // 155
     "SMS", // 156
-    "Email hotline", // 157
-    "Email studio", // 158
+    "E-mail informatielijn", // 157
+    "Studio-e-mail", // 158
     "Email", // 159
     "Chat", // 160
     "Chat centrum", // 161
@@ -506,8 +526,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Aankoop", // 167
     "Verkrijg data", // 168
     "MW standaard\nstapgrootte", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
+    "Mandarijn", // 170
+    "Oceaan", // 171
     "Indigo", // 172
     "Batterij weergave", // 173
     "Toon spanning", // 174
@@ -532,10 +552,10 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "FM", // 193
     "AM", // 194
     "VERBIND", // 195
-    "DX MODE", // 196
-    "AUTO MEM", // 197
+    "DX-MODUS", // 196
+    "AUTO OPSLAG", // 197
     "AM AGC", // 198
-    "FM deemphasis", // 199
+    "FM-deëmfasis", // 199
     "Laag", // 200
     "Middel", // 201
     "Alles", // 202
@@ -607,7 +627,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Alleen met\nRDS opslaan", // 268
     "Start auto\ngeheugen kanaal", // 269
     "Auto geheugen kanaal", // 270
-    "Stationlist ID", // 271
+    "Stationlist-ID", // 271
     "Gevonden", // 272
     "Afgebroken! Geheugen vol", // 273
     "Afgebroken! Knop ingedrukt", // 274
@@ -618,8 +638,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Bereik", // 279
     "Volledig", // 280
     "Wachttijd alleen\nbij signaal", // 281
-    "Druk op aangegeven hoeken", // 282
-    "om scherm te calibreren", // 283
+    "Druk op de gemarkeerde hoek", // 282
+    "Aanraakscherm kalibreren", // 283
     "Houdt BW knop lang\ningedrukt om te stoppen", // 284
     "Selecteer bandbreedte", // 285
     "Jouw logboek", // 286
@@ -665,7 +685,27 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Gateway", // 326
     "Directe frequentieinvoer", // 327
     "Batterij bijna leeg", // 328
-    "DRUK OP EEN KNOP OM TE SLUITEN" // 329
+    "DRUK OP EEN KNOP OM TE SLUITEN", // 329
+    "Invoerinstellingen", // 330
+    "Frequentietoetsen", // 331
+    "INVOER", // 332
+    "MODE: TERUG", // 333
+    "Apparaatinstellingen", // 334
+    "APPARAAT", // 335
+    "Scherminstellingen", // 336
+    "SCHERM", // 337
+    "Draairichting omkeren", // 338
+    "Optische encoder", // 339
+    "Scherm 180° draaien", // 340
+    "Kleuren omkeren", // 341
+    "Analoge meter", // 342
+    "Fabrieksreset", // 343
+    "Nee", // 344
+    "Ja", // 345
+    "Kalibratie starten?", // 346
+    "Instellingen en\nzenders wissen?", // 347
+    "Laat alle\nbedieningen los", // 348
+    "Volle uitslag" // 349
   },
 
   { "Polski", // Polish
@@ -865,7 +905,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "ŁĄCZNOŚĆ", // 195
     "TRYB DX", // 196
-    "AUTO MEM", // 197
+    "AUTO ZAPIS", // 197
     "AM AGC", // 198
     "Deemfaza FM", // 199
     "Małe", // 200
@@ -926,7 +966,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Stare przeboje", // 255
     "Muzyka ludowa", // 256
     "Dokument", // 257
-    "Alarm Test", // 258
+    "Test alarmu", // 258
     "Alarm", // 259
     "Początkowy", // 260
     "Zawsze", // 261
@@ -951,7 +991,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Pełne", // 280
     "Czekaj tylko gdy\nwykryto stację", // 281
     "Naciśnij zaznaczony róg", // 282
-    "Aby skalibrować ekran", // 283
+    "Kalibracja ekranu dotykowego", // 283
     "Aby zatrzymać,\nprzytrzymaj przycisk BW", // 284
     "Wybierz szer. pasma", // 285
     "Twój wykaz", // 286
@@ -992,12 +1032,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ustaw hasło rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Adres IP", // 324
+    "Maska podsieci", // 325
+    "Brama", // 326
     "Bezpośrednie strojenie", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Bateria prawie pusta", // 328
+    "NACIŚNIJ DOWOLNY PRZYCISK", // 329
+    "Ustawienia wejścia", // 330
+    "Klawiatura częst.", // 331
+    "WEJŚCIE", // 332
+    "MODE: WSTECZ", // 333
+    "Ustawienia urządzenia", // 334
+    "URZĄDZENIE", // 335
+    "Ustawienia ekranu", // 336
+    "EKRAN", // 337
+    "Odwróć kierunek", // 338
+    "Enkoder optyczny", // 339
+    "Obróć ekran o 180°", // 340
+    "Odwróć kolory", // 341
+    "Miernik analogowy", // 342
+    "Reset fabryczny", // 343
+    "Nie", // 344
+    "Tak", // 345
+    "Rozpocząć kalibrację?", // 346
+    "Usunąć ustawienia\ni zapisane stacje?", // 347
+    "Zwolnij wszystkie\nprzyciski", // 348
+    "Pełna skala" // 349
   },
 
   { "Hrvatski", // Croatian
@@ -1036,21 +1096,21 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "PRITISNITE BAND ZA IZLAZ", // 33
     "SKENIRANJE...", // 34
     "Prijemnik nije pronađen", // 35
-    "AM Antenna gain", // 36
+    "Pojačanje AM antene", // 36
     "FM AGC", // 37
     "Prikaži RDS pogreške", // 38
     "Jezik", // 39
     "Odaberite jezik", // 40
-    "PI locked CT sync", // 41
-    "Error! No RDS signal", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "CT sinkr. vezana uz PI", // 41
+    "Greška! Nema RDS signala", // 42
+    "Blago utišavanje FM", // 43
+    "Blago utišavanje AM", // 44
     "Beep na rubu frekv. opsega", // 45
     "Regija", // 46
     "Europa", // 47
     "USA", // 48
     "Prikaži donju crtu u RDS-u", // 49
-    "PS only", // 50
+    "Samo PS", // 50
     "Wi-Fi", // 51
     "Wi-Fi postavke", // 52
     "Spojite se na: ", // 53
@@ -1078,7 +1138,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Time-out timer", // 75
     "Zaslon isključiti", // 76
     "Tema dizajna", // 77
-    "Skin", // 78
+    "Izgled", // 78
     "Otkrivene aplikacije", // 79
     "Min.", // 80
     "Dinamička SPI brzina", // 81
@@ -1109,9 +1169,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "OIRT", // 106
     "Okretanje dok je zaslon isključen", // 107
     "Selektor modela", // 108
-    "Base", // 109
-    "Portable", // 110
-    "Portable touch", // 111
+    "Stolni", // 109
+    "Prijenosni", // 110
+    "Prijenosni na dodir", // 111
     "Naslov", // 112
     "Album", // 113
     "Pjesma", // 114
@@ -1152,15 +1212,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Frekvencija", // 149
     "Web stranica", // 150
     "Potkanal", // 151
-    "Hotline", // 152
+    "Info telefon", // 152
     "Telefon studija", // 153
     "Telefon", // 154
-    "SMS studio", // 155
+    "SMS studija", // 155
     "SMS", // 156
-    "Email hotline", // 157
+    "E-pošta info linije", // 157
     "Email studija", // 158
-    "Email", // 159
-    "Chat", // 160
+    "E-pošta", // 159
+    "Razgovor", // 160
     "Chat centar", // 161
     "Pitanje za glasanje", // 162
     "Centar za glasanje", // 163
@@ -1170,7 +1230,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Kupnja", // 167
     "Primi podatke", // 168
     "MW zadana veličina koraka", // 169
-    "Tangerine", // 170
+    "Mandarina", // 170
     "Ocean", // 171
     "Indigo", // 172
     "Postavke za bateriju", // 173
@@ -1197,9 +1257,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "SPOJI", // 195
     "DX NAČIN RADA", // 196
-    "AUTO MEM", // 197
+    "AUTO MEMORIJA", // 197
     "AM AGC", // 198
-    "FM deemphasis", // 199
+    "FM deemfaza", // 199
     "Malo", // 200
     "Veliko", // 201
     "Sve", // 202
@@ -1282,8 +1342,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Raspon", // 279
     "Puno", // 280
     "Vrijeme čekanja na\nsignal samo", // 281
-    "Pritisnite istaknuti kut", // 282
-    "Za kalibraciju zaslona osjetljivog na dodir", // 283
+    "Pritisnite označeni kut", // 282
+    "Kalibracija dodirnog zaslona", // 283
     "Držite BW gumb za\nzaustavljanje DX skenera", // 284
     "Odabir širine pojasa", // 285
     "Vaš dnevnik", // 286
@@ -1296,11 +1356,11 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Dnevnik očišćen", // 293
     "Čišćenje nije uspjelo", // 294
     "Ne mogu dodati unos!\nDnevnik je pun!", // 295
-    "Autologger", // 296
+    "Automatski zapisnik", // 296
     "Auto DST na NTP vremenu", // 297
     "Postavi NTP pomak vremena", // 298
     "Dnevnik sadrži preko 130 unosa, koje preglednik ne može obraditi. Preuzmite CSV datoteku za obradu.", // 299
-    "Canada", // 300
+    "Kanada", // 300
     "Povežite ovaj uređaj na WiFi mrežu za omogućavanje daljinskih funkcija.", // 301
     "Konfiguriraj WiFi", // 302
     "Skrivena mreža", // 303
@@ -1324,12 +1384,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Postavi rabbitears.info lozinku", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP adresa", // 324
+    "Maska podmreže", // 325
+    "Pristupnik", // 326
     "Izravno ugađanje", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Baterija je skoro prazna", // 328
+    "PRITISNITE BILO KOJU TIPKU", // 329
+    "Postavke unosa", // 330
+    "Tipkovnica frekv.", // 331
+    "UNOS", // 332
+    "MODE: NATRAG", // 333
+    "Postavke uređaja", // 334
+    "UREĐAJ", // 335
+    "Postavke zaslona", // 336
+    "ZASLON", // 337
+    "Obrni smjer enkodera", // 338
+    "Optički enkoder", // 339
+    "Okreni zaslon 180°", // 340
+    "Obrni boje", // 341
+    "Analogni mjerač", // 342
+    "Tvorničke postavke", // 343
+    "Ne", // 344
+    "Da", // 345
+    "Pokrenuti kalibraciju?", // 346
+    "Obrisati postavke\ni spremljene postaje?", // 347
+    "Otpustite sve\nkontrole", // 348
+    "Puni otklon" // 349
   },
 
   { "Ελληνικά", // Greek
@@ -1341,7 +1421,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ο κωδικοποιητής\nρυθμίστηκε σε οπτικός", // 6
     "Ο κωδικοποιητής\nρυθμίστηκε σε στάνταρ", // 7
     "Δέκτης FM/AM", // 8
-    "Tuner: !Κανένα!", // 9
+    "Δέκτης: !Κανένας!", // 9
     "Ένταση ήχου", // 10
     "Μετατροπέας", // 11
     "Κάτω όριο μπάντας", // 12
@@ -1367,7 +1447,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "ΠΙΕΣΤΕ MODE ΓΙΑ ΕΞΟΔΟ & ΑΠΟΘΗΚΕΥΣΗ", // 32
     "ΠΙΕΣΤΕ BAND ΓΙΑ ΚΛΕΙΣΙΜΟ", // 33
     "ΑΝΙΧΝΕΥΣΗ...", // 34
-    "Το tuner δεν εντοπίστηκε", // 35
+    "Ο δέκτης δεν εντοπίστηκε", // 35
     "Κέρδος κεραίας AM", // 36
     "FM AGC", // 37
     "Περιθώριο σφαλμάτων\nRDS", // 38
@@ -1466,7 +1546,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Γεγονός", // 131
     "Σκηνή", // 132
     "Σινεμά", // 133
-    "TV", // 134
+    "Τηλεόραση", // 134
     "Ημερομηνία/ώρα", // 135
     "Καιρός", // 136
     "Κυκλοφορία", // 137
@@ -1491,8 +1571,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "SMS", // 156
     "Email επικοινωνίας", // 157
     "Email στούντιο", // 158
-    "Email", // 159
-    "Chat", // 160
+    "Ηλ. ταχυδρομείο", // 159
+    "Συνομιλία", // 160
     "Κέντρο chat", // 161
     "Ερώτηση ψηφοφορίας", // 162
     "Κέντρο ψηφοφορίας", // 163
@@ -1528,7 +1608,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "FM", // 193
     "AM", // 194
     "ΣΥΝΔΕΣΗ", // 195
-    "DX MODE", // 196
+    "ΛΕΙΤΟΥΡΓΙΑ DX", // 196
     "ΑΥΤ. ΜΝΗΜΗ", // 197
     "AM AGC", // 198
     "FM αποέμφαση", // 199
@@ -1614,8 +1694,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Εύρος", // 279
     "Πλήρης", // 280
     "Αναμονή μόνο σε\nυπάρξη σήματος", // 281
-    "Πιέστε την επισημασμένη\nγωνία για βαθμονόμηση", // 282
-    "της οθόνης αφής", // 283
+    "Πιέστε την επισημασμένη γωνία", // 282
+    "Βαθμονόμηση οθόνης αφής", // 283
     "Κρατήστε το BW για\nδιακοπή της DX σάρωσης", // 284
     "Επιλογή εύρους μπάντας", // 285
     "Το βιβλίο καταγραφών σας", // 286
@@ -1656,12 +1736,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ορισμός κωδικού rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Διεύθυνση IP", // 324
+    "Μάσκα υποδικτύου", // 325
+    "Πύλη δικτύου", // 326
     "Άμεσος συντονισμός", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Η μπαταρία εξαντλείται", // 328
+    "ΠΑΤΗΣΤΕ ΠΛΗΚΤΡΟ ΓΙΑ ΚΛΕΙΣΙΜΟ", // 329
+    "Ρυθμίσεις εισόδου", // 330
+    "Αριθμ. πληκτρολόγιο", // 331
+    "ΕΙΣΟΔΟΣ", // 332
+    "MODE: ΕΠΙΣΤΡΟΦΗ", // 333
+    "Ρυθμίσεις συσκευής", // 334
+    "ΣΥΣΚΕΥΗ", // 335
+    "Ρυθμίσεις οθόνης", // 336
+    "ΟΘΟΝΗ", // 337
+    "Αντιστροφή ρότορα", // 338
+    "Οπτικός κωδικοποιητής", // 339
+    "Περιστροφή 180°", // 340
+    "Αντιστροφή χρωμάτων", // 341
+    "Αναλογικό όργανο", // 342
+    "Εργοστασιακή επαναφορά", // 343
+    "Όχι", // 344
+    "Ναι", // 345
+    "Έναρξη βαθμονόμησης;", // 346
+    "Διαγραφή ρυθμίσεων\nκαι σταθμών μνήμης;", // 347
+    "Αφήστε όλα\nτα χειριστήρια", // 348
+    "Πλήρης κλίμακα" // 349
   },
 
   { "Română", // Romanian
@@ -1755,7 +1855,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "EON nu este disponibil", // 88
     "RT+ nu este disponibil", // 89
     "Mărime pași FM", // 90
-    "Screensaver", // 91
+    "Economizor ecran", // 91
     "Sec", // 92
     "Mod ceas", // 93
     "Luminozitate 1%", // 94
@@ -1804,7 +1904,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Trafic", // 137
     "Alarmă", // 138
     "Reclame", // 139
-    "Website", // 140
+    "Site web", // 140
     "Altele", // 141
     "PS scurt", // 142
     "PS lung", // 143
@@ -1819,10 +1919,10 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Linia fierbinte", // 152
     "Telefon Studio", // 153
     "Telefon", // 154
-    "SMS studio", // 155
+    "SMS către studio", // 155
     "SMS", // 156
     "Email Linie fierbinte", // 157
-    "Email studio", // 158
+    "E-mail studio", // 158
     "Email", // 159
     "Discuții", // 160
     "Centru discuții", // 161
@@ -1834,7 +1934,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Cumpără", // 167
     "Preiau date", // 168
     "Pași MW impliciți", // 169
-    "Tangerine", // 170
+    "Mandarină", // 170
     "Ocean", // 171
     "Indigo", // 172
     "Opțiuni Baterie", // 173
@@ -1861,9 +1961,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "CONECTARE", // 195
     "MOD DX", // 196
-    "AUTO MEM", // 197
+    "MEMORARE AUTO", // 197
     "AGC AM", // 198
-    "FM deemphasis", // 199
+    "Dezaccentuare FM", // 199
     "Mic", // 200
     "Mare", // 201
     "Tot", // 202
@@ -1913,7 +2013,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Copii", // 246
     "Social", // 247
     "Religie", // 248
-    "Phone-In", // 249
+    "Intervenții telefonice", // 249
     "Călătorii", // 250
     "Timp Liber", // 251
     "Muzică de Jazz", // 252
@@ -1946,8 +2046,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Interval", // 279
     "Complet", // 280
     "Timp de așteptare doar\npe semnal", // 281
-    "Apasă colțul evidențiat", // 282
-    "Pentru calibrarea ecranului tactil", // 283
+    "Apăsați colțul evidențiat", // 282
+    "Calibrare ecran tactil", // 283
     "Ține apăsat BW pentru\noprirea scannerului DX", // 284
     "Selectează lățimea de bandă", // 285
     "Jurnalul tău", // 286
@@ -1960,7 +2060,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Jurnal șters", // 293
     "Ștergerea a eșuat", // 294
     "Nu se poate adăuga!\nJurnalul este plin!", // 295
-    "Autologger", // 296
+    "Jurnal automat", // 296
     "Auto DST pe ora NTP", // 297
     "Setează offsetul pentru ora NTP", // 298
     "Jurnalul conține peste 130 de intrări, pe care vizualizatorul nu le poate procesa. Te rog descarcă fișierul CSV pentru a le procesa.", // 299
@@ -1988,12 +2088,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Setați parola rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
+    "Adresă IP", // 324
+    "Mască de subrețea", // 325
     "Gateway", // 326
     "Acordare directă", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Baterie aproape goală", // 328
+    "APĂSAȚI ORICE TASTĂ PENTRU ÎNCHIDERE", // 329
+    "Setări de intrare", // 330
+    "Tastatură frecv.", // 331
+    "INTRARE", // 332
+    "MODE: ÎNAPOI", // 333
+    "Setări dispozitiv", // 334
+    "DISPOZITIV", // 335
+    "Setări ecran", // 336
+    "ECRAN", // 337
+    "Inversare encoder", // 338
+    "Encoder optic", // 339
+    "Rotire ecran 180°", // 340
+    "Inversare culori", // 341
+    "Indicator analogic", // 342
+    "Resetare din fabrică", // 343
+    "Nu", // 344
+    "Da", // 345
+    "Începeți calibrarea?", // 346
+    "Ștergeți setările\nși posturile memorate?", // 347
+    "Eliberați toate\ncomenzile", // 348
+    "Scală completă" // 349
   },
 
   { "Deutsch", // German
@@ -2110,7 +2230,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Portabel Touch", // 111
     "Titel", // 112
     "Album", // 113
-    "Track", // 114
+    "Titelnummer", // 114
     "Künstler", // 115
     "Komposition", // 116
     "Satz", // 117
@@ -2147,7 +2267,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Redaktion", // 148
     "Frequenz", // 149
     "Homepage", // 150
-    "Subchannel", // 151
+    "Unterkanal", // 151
     "Telefon Hotline", // 152
     "Telefon Studio", // 153
     "Telefon", // 154
@@ -2166,8 +2286,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Bezugsquelle", // 167
     "Empfange Daten", // 168
     "MW\nStandardschrittweite", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
+    "Mandarine", // 170
+    "Ozean", // 171
     "Indigo", // 172
     "Akkuoptionen", // 173
     "Spannung anzeigen", // 174
@@ -2193,7 +2313,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "VERBIND./UHR", // 195
     "DX-MODUS", // 196
-    "AUTO MEM", // 197
+    "AUTO SPEICHER", // 197
     "AM AGC", // 198
     "Entzerrung auf UKW", // 199
     "Wenig", // 200
@@ -2254,7 +2374,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Oldies Musik", // 255
     "Folklore", // 256
     "Feature", // 257
-    "Alarm Test", // 258
+    "Alarmtest", // 258
     "Alarm! Alarm!", // 259
     "Anfänglich", // 260
     "Immer", // 261
@@ -2279,7 +2399,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Voll", // 280
     "Wartezeit nur wenn\nSignal vorhanden", // 281
     "Markierte Ecke drücken", // 282
-    "zum Kalibrieren des Touchscrees", // 283
+    "Touchscreen kalibrieren", // 283
     "Zum Stoppen des DX-Scans\nTaste BW lange drücken", // 284
     "Bandbreite wählen", // 285
     "Dein Logbuch", // 286
@@ -2325,7 +2445,27 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Gateway", // 326
     "Direkte Abstimmung", // 327
     "Der Akku ist fast leer", // 328
-    "DRÜCKE EINEN KNOPF ZUM SCHLIESSEN" // 329
+    "DRÜCKE EINEN KNOPF ZUM SCHLIESSEN", // 329
+    "Eingabeeinstellungen", // 330
+    "Frequenztastatur", // 331
+    "EINGABE", // 332
+    "MODE: ZURÜCK", // 333
+    "Geräteeinstellungen", // 334
+    "GERÄT", // 335
+    "Bildschirmeinstellungen", // 336
+    "BILDSCHIRM", // 337
+    "Drehrichtung umkehren", // 338
+    "Optischer Encoder", // 339
+    "Anzeige um 180° drehen", // 340
+    "Farben umkehren", // 341
+    "Analoges Messgerät", // 342
+    "Werkseinstellungen", // 343
+    "Nein", // 344
+    "Ja", // 345
+    "Kalibrierung starten?", // 346
+    "Einstellungen und\nSenderspeicher löschen?", // 347
+    "Alle Bedienelemente\nloslassen", // 348
+    "Vollausschlag" // 349
   },
 
   { "Čeština", // Czech
@@ -2371,8 +2511,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Vyberte jazyk", // 40
     "Synchronizovat CT,\nkdyž je PI uzamčeno", // 41
     "Chyba! Bez RDS!", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Měkké ztlumení FM", // 43
+    "Měkké ztlumení AM", // 44
     "Pípnout na konci pásma", // 45
     "Region", // 46
     "Evropa", // 47
@@ -2406,7 +2546,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Časovač vypnutí", // 75
     "Vypnutí obrazovky", // 76
     "Vzhled", // 77
-    "Skin", // 78
+    "Vzhled", // 78
     "Detekované aplikace", // 79
     "minut", // 80
     "Dynamická rychlost SPI", // 81
@@ -2470,8 +2610,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Reklama", // 139
     "Webová stránka", // 140
     "Ostatní", // 141
-    "Short PS", // 142
-    "Long PS", // 143
+    "Krátké PS", // 142
+    "Dlouhé PS", // 143
     "Nyní", // 144
     "Následuje", // 145
     "Část", // 146
@@ -2485,7 +2625,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Telefon", // 154
     "SMS do studia", // 155
     "SMS", // 156
-    "Emailová hotline", // 157
+    "E-mail informační linky", // 157
     "Email do studia", // 158
     "Email", // 159
     "Chat", // 160
@@ -2498,13 +2638,13 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Nákup", // 167
     "Získat data", // 168
     "Výchozí krok ladění MW", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
+    "Mandarinka", // 170
+    "Oceán", // 171
     "Indigo", // 172
     "Úroveň nabití baterie", // 173
     "Zobrazit napětí", // 174
     "Zobrazit procenta", // 175
-    "RT buffering", // 176
+    "Vyrovnávací paměť RT", // 176
     "Hlavní nastavení", // 177
     "Nastavení zvuku", // 178
     "Nastavení displeje", // 179
@@ -2525,7 +2665,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "KONEKTIVITA", // 195
     "DX REŽIM", // 196
-    "AUTO MEM", // 197
+    "AUTO PAMĚŤ", // 197
     "AM AGC", // 198
     "FM deemfáze", // 199
     "Malé", // 200
@@ -2586,7 +2726,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Oldies hudba", // 255
     "Folková hudba", // 256
     "Dokumenty", // 257
-    "Alarm Test", // 258
+    "Test alarmu", // 258
     "Alarm – Alarm !", // 259
     "Počáteční", // 260
     "Vždy", // 261
@@ -2611,24 +2751,24 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Plný", // 280
     "Čekací doba pouze na\nsignal", // 281
     "Stiskněte zvýrazněný roh", // 282
-    "Pro kalibraci dotekové obrazovky", // 283
+    "Kalibrace dotykového displeje", // 283
     "Pro zastavení\npodržte tlačítko BW", // 284
     "Vyberte šířku pásma", // 285
-    "Váš logbook", // 286
-    "Stáhnout logbook", // 287
-    "Logbook je prázdný", // 288
+    "Váš deník", // 286
+    "Stáhnout deník", // 287
+    "Deník je prázdný", // 288
     "Přejít na konec", // 289
     "Přidáno do logu", // 290
     "Chyba při přidávání\npoložky do logbooku", // 291
-    "Vymazat logbook", // 292
-    "Logbook vymazán", // 293
+    "Vymazat deník", // 292
+    "Deník vymazán", // 293
     "Vymazání se nezdařilo", // 294
-    "Nelze přidat položku!\nLogbook je plný!", // 295
+    "Nelze přidat položku!\nDeník je plný!", // 295
     "Automatický logger", // 296
     "Auto DST u NTP času", // 297
     "Nastavte časový posun NTP", // 298
-    "Logbook obsahuje více než 130 položek, které prohlížeč nedokáže zpracovat. Pro zpracování všech položek si stáhněte CSV soubor.", // 299
-    "Canada", // 300
+    "Deník obsahuje více než 130 položek, které prohlížeč nedokáže zpracovat. Pro zpracování všech položek si stáhněte soubor CSV.", // 299
+    "Kanada", // 300
     "Připojte toto zařízení k WiFi síti pro povolení vzdálených funkcí.", // 301
     "Konfigurace WiFi", // 302
     "Skrytá síť", // 303
@@ -2652,12 +2792,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Nastavte heslo rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP adresa", // 324
+    "Maska podsítě", // 325
+    "Brána", // 326
     "Přímé ladění", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Baterie téměř vybitá", // 328
+    "STISKNĚTE LIBOVOLNÉ TLAČÍTKO", // 329
+    "Nastavení vstupu", // 330
+    "Číselná klávesnice", // 331
+    "VSTUP", // 332
+    "MODE: ZPĚT", // 333
+    "Nastavení zařízení", // 334
+    "ZAŘÍZENÍ", // 335
+    "Nastavení displeje", // 336
+    "DISPLEJ", // 337
+    "Obrátit směr enkodéru", // 338
+    "Optický enkodér", // 339
+    "Otočit displej o 180°", // 340
+    "Invertovat barvy", // 341
+    "Analogový měřič", // 342
+    "Tovární nastavení", // 343
+    "Ne", // 344
+    "Ano", // 345
+    "Spustit kalibraci?", // 346
+    "Smazat nastavení\na uložené stanice?", // 347
+    "Uvolněte všechny\novládací prvky", // 348
+    "Plná výchylka" // 349
   },
 
   { "Magyar", // Hungarian
@@ -2857,7 +3017,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "CSATLAKOZÁS", // 195
     "DX MÓD", // 196
-    "AUTO MEM", // 197
+    "AUTO TÁROLÁS", // 197
     "AM AGC", // 198
     "FM kihangolás", // 199
     "Kicsi", // 200
@@ -2931,7 +3091,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Csak RDS-el tárolja", // 268
     "Auto memória indítása", // 269
     "Auto memória", // 270
-    "Stationlist ID", // 271
+    "Stationlist-azonosító", // 271
     "Megtalálva", // 272
     "Megszakítva! Nincs\nmemóriacsatorna", // 273
     "Megszakítva! Felhasználó\nmegnyomta a gombot", // 274
@@ -2942,20 +3102,20 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Tartomány", // 279
     "Teljes", // 280
     "Várakozási idő\ncsak jel esetén", // 281
-    "Nyomd meg a kiemelt sarkot", // 282
-    "Érintőképernyő kalibrálásához", // 283
+    "Nyomja meg a kijelölt sarkot", // 282
+    "Érintőképernyő kalibrálása", // 283
     "Tartsd lenyomva a\nBW-t a megállításhoz", // 284
     "Sávszélesség választása", // 285
     "A logbookod", // 286
-    "Logbook letöltése", // 287
-    "A logbook üres", // 288
+    "Napló letöltése", // 287
+    "A napló üres", // 288
     "Ugrás az aljára", // 289
     "Hozzáadva a loghoz", // 290
     "Hiba a naplóhoz adáskor", // 291
-    "Logbook törlése", // 292
-    "Logbook törölve", // 293
+    "Napló törlése", // 292
+    "Napló törölve", // 293
     "Sikertelen törlés", // 294
-    "Nem adható hozzá!\nLogbook megtelt!", // 295
+    "Nem adható hozzá!\nA napló megtelt!", // 295
     "Auto logoló", // 296
     "Auto nyári idő(DST)\nNTP idő szerint", // 297
     "NTP időeltolás beállítása", // 298
@@ -2984,12 +3144,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Állítsa be a rabbitears.info jelszót", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-cím", // 324
+    "Alhálózati maszk", // 325
+    "Átjáró", // 326
     "Közvetlen hangolás", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Az akkumulátor lemerül", // 328
+    "BEZÁRÁS: BÁRMELY GOMB", // 329
+    "Beviteli beállítások", // 330
+    "Frekv. billentyűzet", // 331
+    "BEVITEL", // 332
+    "MODE: VISSZA", // 333
+    "Eszközbeállítások", // 334
+    "ESZKÖZ", // 335
+    "Kijelzőbeállítások", // 336
+    "KIJELZŐ", // 337
+    "Forgásirány váltása", // 338
+    "Optikai enkóder", // 339
+    "Kijelző forgatása 180°", // 340
+    "Színek invertálása", // 341
+    "Analóg műszer", // 342
+    "Gyári visszaállítás", // 343
+    "Nem", // 344
+    "Igen", // 345
+    "Kalibrálás indítása?", // 346
+    "Beállítások és tárolt\nállomások törlése?", // 347
+    "Engedjen el minden\nkezelőszervet", // 348
+    "Végkitérés" // 349
   },
 
   { "Français", // French
@@ -3144,15 +3324,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Fréquence", // 149
     "Page d'accueil", // 150
     "Sous-canal", // 151
-    "Hotline", // 152
+    "Ligne directe", // 152
     "Num. Téléphone Studio", // 153
     "Num. Téléphone", // 154
     "Num. SMS Studio", // 155
     "Numéro SMS", // 156
-    "Email de la hotline", // 157
+    "Courriel ligne directe", // 157
     "Email du studio", // 158
-    "Email", // 159
-    "Chat", // 160
+    "Courriel", // 159
+    "Discussion", // 160
     "Centre de discussion", // 161
     "Question de vote", // 162
     "Centre de vote", // 163
@@ -3274,8 +3454,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Plage", // 279
     "Complet", // 280
     "Temps d'attente\nuniquement sur le signal", // 281
-    "Appuyez sur le coin\nindiqué pour ", // 282
-    "calibrer l'écran tactile", // 283
+    "Appuyez sur le coin indiqué", // 282
+    "Calibrage de l’écran tactile", // 283
     "Pressez BW pour\narrêter le scanner DX", // 284
     "Sélectionner la bande passante", // 285
     "Votre journal de bord", // 286
@@ -3316,12 +3496,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Définir le mot de passe rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Adresse IP", // 324
+    "Masque de sous-réseau", // 325
+    "Passerelle", // 326
     "Accord direct", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batterie presque vide", // 328
+    "APPUYEZ SUR UNE TOUCHE POUR FERMER", // 329
+    "Réglages de saisie", // 330
+    "Clavier fréquence", // 331
+    "SAISIE", // 332
+    "MODE: RETOUR", // 333
+    "Réglages appareil", // 334
+    "APPAREIL", // 335
+    "Réglages écran", // 336
+    "ÉCRAN", // 337
+    "Inverser le sens", // 338
+    "Encodeur optique", // 339
+    "Tourner écran à 180°", // 340
+    "Inverser les couleurs", // 341
+    "Indicateur analogique", // 342
+    "Réglages usine", // 343
+    "Non", // 344
+    "Oui", // 345
+    "Lancer le calibrage ?", // 346
+    "Effacer réglages\net stations mémorisées ?", // 347
+    "Relâchez toutes\nles commandes", // 348
+    "Pleine échelle" // 349
   },
 
   { "Български", // Bulgarian
@@ -3372,7 +3572,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Сигнал при граница\nна лента", // 45
     "Регион", // 46
     "Европа", // 47
-    "USA", // 48
+    "САЩ", // 48
     "Долна черта в RDS", // 49
     "Само PS", // 50
     "Wi-Fi активен", // 51
@@ -3607,7 +3807,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Пълен", // 280
     "Време за изчакване\nпри сигнал", // 281
     "Натиснете маркирания ъгъл", // 282
-    "За калибриране\nна докосване", // 283
+    "Калибриране на сензорния екран", // 283
     "Задръжте BW бутона\nза да спрете сканера", // 284
     "Избор на честотна\nлента", // 285
     "Вашият дневник", // 286
@@ -3648,12 +3848,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Задайте парола за rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP адрес", // 324
+    "Маска на подмрежата", // 325
+    "Шлюз", // 326
     "Директно настройване", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Батерията се изтощава", // 328
+    "НАТИСНЕТЕ БУТОН ЗА ЗАТВАРЯНЕ", // 329
+    "Настройки за вход", // 330
+    "Цифрова клавиатура", // 331
+    "ВХОД", // 332
+    "MODE: НАЗАД", // 333
+    "Настройки на уреда", // 334
+    "УРЕД", // 335
+    "Настройки на екрана", // 336
+    "ЕКРАН", // 337
+    "Обръщане на енкодера", // 338
+    "Оптичен енкодер", // 339
+    "Завъртане на 180°", // 340
+    "Обръщане на цветовете", // 341
+    "Аналогов уред", // 342
+    "Фабрични настройки", // 343
+    "Не", // 344
+    "Да", // 345
+    "Начало на калибриране?", // 346
+    "Нулиране на\nнастройки и станции?", // 347
+    "Отпуснете всички\nбутони", // 348
+    "Пълно отклонение" // 349
   },
 
   { "Русский", // Russian
@@ -3697,14 +3917,14 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Уровень ошибок RDS", // 38
     "Язык меню", // 39
     "Язык меню: ", // 40
-    "PI locked CT sync", // 41
+    "Синхр. CT по PI", // 41
     "Ошибка! Нет RDS!", // 42
     "FM Soft Mute", // 43
     "AM Soft Mute", // 44
     "Край диапазона (звук): ", // 45
     "Регион", // 46
     "Европа", // 47
-    "USA", // 48
+    "США", // 48
     "Показывать _ в RDS", // 49
     "Только PS", // 50
     "Wi-Fi активен", // 51
@@ -3720,8 +3940,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ошибки PI-кода", // 61
     "Отображать шумодав", // 62
     "Уровень модуляции", // 63
-    "AM Noise blanker", // 64
-    "FM Noise blanker", // 65
+    "Подавитель импульсов AM", // 64
+    "Подавитель импульсов FM", // 65
     "Загружены настройки по умолчанию", // 66
     "Режим вывода аудио", // 67
     "При погашенном экране", // 68
@@ -3742,7 +3962,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Не использовать", // 83
     "Версия прошивки -", // 84
     "Шрифт индикации частоты", // 85
-    "Auto", // 86
+    "Авто", // 86
     "Нет данных", // 87
     "Нет данных", // 88
     "Нет данных", // 89
@@ -3815,7 +4035,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "SMS", // 156
     "Email горячей линии", // 157
     "Email студии", // 158
-    "Email", // 159
+    "Эл. почта", // 159
     "Чат", // 160
     "Чат-центр", // 161
     "Вопрос голосования", // 162
@@ -3826,9 +4046,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Покупка", // 167
     "Получить данные", // 168
     "Шаг по умолчанию на СВ", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
-    "Indigo", // 172
+    "Мандарин", // 170
+    "Океан", // 171
+    "Индиго", // 172
     "Индикатор батареи", // 173
     "Вольтаж", // 174
     "Процент заряда", // 175
@@ -3852,10 +4072,10 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "FM", // 193
     "AM", // 194
     "КОННЕКТ", // 195
-    "DX MODE", // 196
-    "AUTO MEM", // 197
+    "РЕЖИМ DX", // 196
+    "АВТОПАМЯТЬ", // 197
     "AM AGC", // 198
-    "FM deemphasis", // 199
+    "Деэмфазис FM", // 199
     "Мало", // 200
     "Больше", // 201
     "Все", // 202
@@ -3938,8 +4158,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Диапазон", // 279
     "Полный", // 280
     "Время ожидания\nпри сигнале", // 281
-    "Нажмите на подсвеченный угол", // 282
-    "Калибровка тачскрина", // 283
+    "Нажмите выделенный угол", // 282
+    "Калибровка сенсорного экрана", // 283
     "Переключение инверсии экрана", // 284
     "Выбрать ширину полосы", // 285
     "Ваш лог-файл", // 286
@@ -3980,12 +4200,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Установите пароль rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-адрес", // 324
+    "Маска подсети", // 325
+    "Шлюз", // 326
     "Прямая настройка", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Батарея разряжается", // 328
+    "НАЖМИТЕ КНОПКУ ДЛЯ ЗАКРЫТИЯ", // 329
+    "Настройки ввода", // 330
+    "Цифровая клавиатура", // 331
+    "ВВОД", // 332
+    "MODE: НАЗАД", // 333
+    "Настройки устройства", // 334
+    "УСТРОЙСТВО", // 335
+    "Настройки экрана", // 336
+    "ЭКРАН", // 337
+    "Обратное вращение", // 338
+    "Оптический энкодер", // 339
+    "Поворот экрана на 180°", // 340
+    "Инверсия цветов", // 341
+    "Аналоговый индикатор", // 342
+    "Заводской сброс", // 343
+    "Нет", // 344
+    "Да", // 345
+    "Начать калибровку?", // 346
+    "Удалить настройки\nи сохранённые станции?", // 347
+    "Отпустите все\nорганы управления", // 348
+    "Полная шкала" // 349
   },
 
   { "Українська", // Ukranian
@@ -4259,7 +4499,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Зберігати лише з RDS", // 268
     "Запуск автопам'яті", // 269
     "Автопам'ять", // 270
-    "Stationlist ID", // 271
+    "Ідентифікатор Stationlist", // 271
     "Знайдено", // 272
     "Скасовано! Немає\nканалів пам'яті", // 273
     "Скасовано! Користувач\nнатиснув кнопку", // 274
@@ -4271,7 +4511,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Повний", // 280
     "Час очікування лише за сигналом", // 281
     "Натисніть виділений кут", // 282
-    "Щоб налаштувати сенсор", // 283
+    "Калібрування сенсорного екрана", // 283
     "Тримайте BAND, щоб зупинити пошук DX", // 284
     "Вибір пропускної здатності", // 285
     "Твій журнал", // 286
@@ -4312,12 +4552,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Встановіть пароль rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-адреса", // 324
+    "Маска підмережі", // 325
+    "Шлюз", // 326
     "Пряме налаштування", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Батарея розряджається", // 328
+    "НАТИСНІТЬ КНОПКУ ДЛЯ ЗАКРИТТЯ", // 329
+    "Налаштування вводу", // 330
+    "Цифрова клавіатура", // 331
+    "ВВІД", // 332
+    "MODE: НАЗАД", // 333
+    "Налаштування пристрою", // 334
+    "ПРИСТРІЙ", // 335
+    "Налаштування екрана", // 336
+    "ЕКРАН", // 337
+    "Зворотне обертання", // 338
+    "Оптичний енкодер", // 339
+    "Поворот екрана на 180°", // 340
+    "Інверсія кольорів", // 341
+    "Аналоговий індикатор", // 342
+    "Заводське скидання", // 343
+    "Ні", // 344
+    "Так", // 345
+    "Почати калібрування?", // 346
+    "Скинути параметри\nі станції?", // 347
+    "Відпустіть усі\nоргани керування", // 348
+    "Повна шкала" // 349
   },
 
   { "Italiano", // Italian
@@ -4350,8 +4610,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Soglia di taglio alto", // 27
     "Soglia di basso livello", // 28
     "Luminosità display", // 29
-    "Off", // 30
-    "On", // 31
+    "Disattivo", // 30
+    "Attivo", // 31
     "PREMI MODE PER USCIRE E MEMORIZZARE", // 32
     "PREMI BAND PER CHIUDERE", // 33
     "SCANSIONE...", // 34
@@ -4363,8 +4623,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Scegli lingua", // 40
     "PI bloccato CT sync", // 41
     "Errore! Nessun segnale RDS", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Silenziamento graduale FM", // 43
+    "Silenziamento graduale AM", // 44
     "Beeper al limite di banda", // 45
     "Regione", // 46
     "Europa", // 47
@@ -4388,17 +4648,17 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Filtro anti-rumore FM", // 65
     "Impostazioni predefinite caricate", // 66
     "Uscita audio", // 67
-    "Consenti sintonia senza\ndisattivare screensaver", // 68
+    "Consenti sintonia senza\ndisattivare salvaschermo", // 68
     "Inverti colori display", // 69
     "Informazioni software", // 70
     "Codice principale:", // 71
     "Contributori:", // 72
     "Sconosciuto", // 73
-    "Opzioni screensaver", // 74
+    "Opzioni salvaschermo", // 74
     "Spegnimento automatico", // 75
     "Schermo spento", // 76
     "Tema", // 77
-    "Skin", // 78
+    "Aspetto", // 78
     "Applicazioni rilevate", // 79
     "Min.", // 80
     "Velocità dinamica SPI", // 81
@@ -4411,7 +4671,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Nessun EON disponibile", // 88
     "Nessun RT+ disponibile", // 89
     "Passo FM predefinito", // 90
-    "Screensaver", // 91
+    "Salvaschermo", // 91
     "Sec", // 92
     "Modalità orologio", // 93
     "1% luminosità", // 94
@@ -4467,20 +4727,20 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ora", // 144
     "Prossimo", // 145
     "Parte", // 146
-    "Host", // 147
-    "Editor", // 148
+    "Conduttore", // 147
+    "Redattore", // 148
     "Frequenza", // 149
-    "Homepage", // 150
+    "Pagina iniziale", // 150
     "Subcanale", // 151
     "Linea diretta", // 152
     "Telefono studio", // 153
     "Telefono", // 154
-    "SMS studio", // 155
+    "SMS allo studio", // 155
     "SMS", // 156
-    "Email hotline", // 157
-    "Email studio", // 158
+    "Email linea diretta", // 157
+    "Email allo studio", // 158
     "Email", // 159
-    "Chat", // 160
+    "Conversazione", // 160
     "Centro chat", // 161
     "Domanda voto", // 162
     "Centro voto", // 163
@@ -4490,13 +4750,13 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Acquisto", // 167
     "Ottenere dati", // 168
     "Passo MW predefinito", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
-    "Indigo", // 172
+    "Mandarino", // 170
+    "Oceano", // 171
+    "Indaco", // 172
     "Opzioni batteria", // 173
     "Mostra tensione", // 174
     "Mostra percentuale", // 175
-    "Buffering RT", // 176
+    "Memoria tampone RT", // 176
     "Impostazioni principali", // 177
     "Impostazioni audio", // 178
     "Impostazioni display", // 179
@@ -4511,13 +4771,13 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Contatore rilevatore CoCanale", // 188
     "PRINCIPALE", // 189
     "AUDIO", // 190
-    "DISPLAY", // 191
+    "SCHERMO", // 191
     "RDS", // 192
     "FM", // 193
     "AM", // 194
     "CONNETTI", // 195
-    "DX MODE", // 196
-    "AUTO MEM", // 197
+    "MODO DX", // 196
+    "MEMORIA AUTO", // 197
     "AM AGC", // 198
     "FM de-enfasi", // 199
     "Piccolo", // 200
@@ -4599,11 +4859,11 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Cancella canali di memoria", // 276
     "Cancellato", // 277
     "Prevenire doppio PI", // 278
-    "Range", // 279
+    "Intervallo", // 279
     "Completo", // 280
     "Tempo di attesa su\nsolo segnale", // 281
-    "Premi angolo evidenziato", // 282
-    "Per calibrare touchscreen", // 283
+    "Premi l’angolo evidenziato", // 282
+    "Calibrazione schermo tattile", // 283
     "Tieni premuto il tasto BW per\nfermare scanner DX", // 284
     "Seleziona larghezza di banda", // 285
     "Il tuo registro dei log", // 286
@@ -4616,7 +4876,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Registro cancellato", // 293
     "Cancellazione fallita", // 294
     "Impossibile aggiungere voce!\nRegistro dei log pieno!", // 295
-    "Autologger", // 296
+    "Registro automatico", // 296
     "Auto DST su tempo NTP", // 297
     "Imposta offset orario NTP", // 298
     "Registro dei log con + di 130 voci, il visualizzatore non può gestirle. Scarica il file CSV per gestirlo.", // 299
@@ -4644,15 +4904,35 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Imposta password rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
+    "Indirizzo IP", // 324
+    "Maschera di sottorete", // 325
     "Gateway", // 326
     "Sintonia diretta", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batteria quasi scarica", // 328
+    "PREMERE UN TASTO PER CHIUDERE", // 329
+    "Impostazioni input", // 330
+    "Tastiera frequenza", // 331
+    "INGRESSO", // 332
+    "MODE: INDIETRO", // 333
+    "Impostazioni dispositivo", // 334
+    "DISPOSITIVO", // 335
+    "Impostazioni schermo", // 336
+    "SCHERMO", // 337
+    "Inverti rotazione", // 338
+    "Encoder ottico", // 339
+    "Ruota schermo di 180°", // 340
+    "Inverti colori", // 341
+    "Indicatore analogico", // 342
+    "Ripristino di fabbrica", // 343
+    "No", // 344
+    "Sì", // 345
+    "Avviare calibrazione?", // 346
+    "Cancellare impostazioni\ne stazioni memorizzate?", // 347
+    "Rilasciare tutti\ni comandi", // 348
+    "Fondo scala" // 349
   },
 
-  { "Simplified Chinese", // Simplified Chinese
+  { "简体中文", // Simplified Chinese
     "飞梭方向改变了", // 1
     "请释放按钮", // 2
     "屏幕翻转了", // 3
@@ -4700,7 +4980,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "频率边界提示音", // 45
     "国家与地区", // 46
     "欧洲", // 47
-    "USA", // 48
+    "美国", // 48
     "RDS 中显示下划线", // 49
     "只有PS", // 50
     "打开 Wifi", // 51
@@ -4764,62 +5044,62 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "原版", // 109
     "便携版", // 110
     "便携电阻触摸版", // 111
-    "Title", // 112
-    "Album", // 113
-    "Track", // 114
-    "Artist", // 115
-    "Composition", // 116
-    "Movement", // 117
-    "Conductor", // 118
-    "Composer", // 119
-    "Band", // 120
-    "Comment", // 121
-    "Genre", // 122
-    "News", // 123
-    "Local news", // 124
-    "Stockmarket", // 125
-    "Sport", // 126
-    "Lottery", // 127
-    "Horoscope", // 128
-    "Daily Diversion", // 129
-    "Health", // 130
-    "Event", // 131
-    "Scene", // 132
-    "Cinema", // 133
-    "TV", // 134
-    "Date/time", // 135
-    "Weather", // 136
-    "Traffic", // 137
-    "Alarm", // 138
-    "Advertisement", // 139
-    "Website", // 140
-    "Other", // 141
-    "Short PS", // 142
-    "Long PS", // 143
-    "Now", // 144
-    "Next", // 145
-    "Part", // 146
-    "Host", // 147
-    "Editor", // 148
-    "Frequency", // 149
-    "Homepage", // 150
-    "Subchannel", // 151
-    "Hotline", // 152
-    "Studio phone", // 153
-    "Phone", // 154
-    "SMS studio", // 155
-    "SMS", // 156
-    "Email hotline", // 157
-    "Email studio", // 158
-    "Email", // 159
-    "Chat", // 160
-    "Chat centre", // 161
-    "Vote question", // 162
-    "Vote centre", // 163
-    "Place", // 164
-    "Appointment", // 165
-    "Identifier", // 166
-    "Purchase", // 167
+    "标题", // 112
+    "专辑", // 113
+    "曲目", // 114
+    "艺人", // 115
+    "作品", // 116
+    "乐章", // 117
+    "指挥", // 118
+    "作曲", // 119
+    "乐队", // 120
+    "评论", // 121
+    "类型", // 122
+    "新闻", // 123
+    "本地新闻", // 124
+    "股市", // 125
+    "体育", // 126
+    "彩票", // 127
+    "星座", // 128
+    "每日趣闻", // 129
+    "健康", // 130
+    "活动", // 131
+    "场景", // 132
+    "电影", // 133
+    "电视", // 134
+    "日期时间", // 135
+    "天气", // 136
+    "交通", // 137
+    "警报", // 138
+    "广告", // 139
+    "网站", // 140
+    "其他", // 141
+    "短台名", // 142
+    "长台名", // 143
+    "当前", // 144
+    "接下来", // 145
+    "部分", // 146
+    "主持人", // 147
+    "编辑", // 148
+    "频率", // 149
+    "主页", // 150
+    "子频道", // 151
+    "热线", // 152
+    "演播室电话", // 153
+    "电话", // 154
+    "演播室短信", // 155
+    "短信", // 156
+    "热线邮箱", // 157
+    "演播室邮箱", // 158
+    "电子邮件", // 159
+    "聊天", // 160
+    "聊天中心", // 161
+    "投票问题", // 162
+    "投票中心", // 163
+    "地点", // 164
+    "预约", // 165
+    "标识", // 166
+    "购买", // 167
     "获取数据", // 168
     "中波默认步进", // 169
     "橘红", // 170
@@ -4881,35 +5161,35 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "熄屏", // 226
     "禁止", // 227
     "无节目", // 228
-    "News", // 229
-    "Current Affairs", // 230
-    "Information", // 231
-    "Sport", // 232
-    "Education", // 233
-    "Drama", // 234
-    "Culture", // 235
-    "Science", // 236
-    "Varied", // 237
-    "Pop Music", // 238
-    "Rock Music", // 239
-    "Easy Listening", // 240
-    "Light Classical", // 241
-    "Serious Classical", // 242
-    "Other Music", // 243
-    "Weather", // 244
-    "Finance", // 245
-    "Children's Progs", // 246
-    "Social Affairs", // 247
-    "Religion", // 248
-    "Phone-In", // 249
-    "Travel", // 250
-    "Leisure", // 251
-    "Jazz Music", // 252
-    "Country Music", // 253
-    "National Music", // 254
-    "Oldies Music", // 255
-    "Folk Music", // 256
-    "Documentary", // 257
+    "新闻", // 229
+    "时事", // 230
+    "信息", // 231
+    "体育", // 232
+    "教育", // 233
+    "戏剧", // 234
+    "文化", // 235
+    "科学", // 236
+    "综合", // 237
+    "流行音乐", // 238
+    "摇滚音乐", // 239
+    "轻松音乐", // 240
+    "轻古典音乐", // 241
+    "古典音乐", // 242
+    "其他音乐", // 243
+    "天气", // 244
+    "财经", // 245
+    "儿童节目", // 246
+    "社会事务", // 247
+    "宗教", // 248
+    "听众来电", // 249
+    "旅游", // 250
+    "休闲", // 251
+    "爵士乐", // 252
+    "乡村音乐", // 253
+    "民族音乐", // 254
+    "怀旧音乐", // 255
+    "民间音乐", // 256
+    "纪录片", // 257
     "警报测试", // 258
     "警报!!!", // 259
     "仅初次", // 260
@@ -4934,8 +5214,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "一定范围内", // 279
     "全部", // 280
     "无信号不停留", // 281
-    "触摸区边沿高亮", // 282
-    "校准触摸屏", // 283
+    "按下高亮的角落", // 282
+    "触摸屏校准", // 283
     "按住BW按钮停止DX扫描仪", // 284
     "选择带宽", // 285
     "你的 log记录", // 286
@@ -4976,12 +5256,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "设置rabbitears.info密码", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP地址", // 324
+    "子网掩码", // 325
+    "网关", // 326
     "直接调谐", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "电池电量不足", // 328
+    "按任意键关闭", // 329
+    "输入设置", // 330
+    "频率数字键盘", // 331
+    "输入", // 332
+    "MODE: 返回", // 333
+    "设备设置", // 334
+    "设备", // 335
+    "屏幕设置", // 336
+    "屏幕", // 337
+    "反转旋钮方向", // 338
+    "光学编码器", // 339
+    "屏幕旋转180°", // 340
+    "反转颜色", // 341
+    "模拟信号表", // 342
+    "恢复出厂设置", // 343
+    "否", // 344
+    "是", // 345
+    "开始校准？", // 346
+    "清除设置和\n已存储的电台？", // 347
+    "松开所有\n按键及触摸屏", // 348
+    "满刻度" // 349
   },
 
   { "Norsk", // Norwegian
@@ -5027,8 +5327,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Velg språk", // 40
     "PI-låst CT-synk", // 41
     "Feil! Ingen RDS-signal", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Myk demping FM", // 43
+    "Myk demping AM", // 44
     "Pip ved båndkant", // 45
     "Region", // 46
     "Europa", // 47
@@ -5062,7 +5362,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Auto avslåing", // 75
     "Skjerm av", // 76
     "Tema", // 77
-    "Skin", // 78
+    "Utseende", // 78
     "Oppdaget applikasjoner", // 79
     "Min.", // 80
     "Dynamisk SPI-hastighet", // 81
@@ -5093,7 +5393,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "OIRT", // 106
     "Stopp skjermvekking ved tuning", // 107
     "Modellvelger", // 108
-    "Base", // 109
+    "Stasjonær", // 109
     "Bærbar", // 110
     "Bærbar touch", // 111
     "Tittel", // 112
@@ -5136,15 +5436,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Frekvens", // 149
     "Hjemmeside", // 150
     "Underkanal", // 151
-    "Hotline", // 152
+    "Direktelinje", // 152
     "Studio telefon", // 153
     "Telefon", // 154
-    "SMS studio", // 155
+    "SMS til studio", // 155
     "SMS", // 156
-    "E-post hotline", // 157
+    "E-post direktelinje", // 157
     "E-post studio", // 158
     "E-post", // 159
-    "Chat", // 160
+    "Samtale", // 160
     "Chattesenter", // 161
     "Stem spørsmål", // 162
     "Stemmesenter", // 163
@@ -5154,8 +5454,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Kjøp", // 167
     "Få data", // 168
     "MW standard\ntrinnstørrelse", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
+    "Mandarin", // 170
+    "Hav", // 171
     "Indigo", // 172
     "Batterialternativer", // 173
     "Vis spenning", // 174
@@ -5181,9 +5481,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "TILKOBLE", // 195
     "DX MODUS", // 196
-    "AUTO MEM", // 197
+    "AUTO MINNE", // 197
     "AM AGC", // 198
-    "FM deemphasis", // 199
+    "FM-deemfase", // 199
     "Lite", // 200
     "Mye", // 201
     "Alt", // 202
@@ -5266,8 +5566,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Spekter", // 279
     "Fullt", // 280
     "Ventetid kun\nved signal", // 281
-    "Trykk på uthevet hjørne", // 282
-    "Kalibrer berøringsskjerm", // 283
+    "Trykk på det uthevede hjørnet", // 282
+    "Kalibrering av berøringsskjerm", // 283
     "Hold BW-knappen for å\nstoppe DX-skanning", // 284
     "Velg båndbredde", // 285
     "Din loggbok", // 286
@@ -5280,7 +5580,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Loggbok tømt", // 293
     "Tømming mislyktes", // 294
     "Kan ikke lagre!\nLoggbok er full!", // 295
-    "Autologger", // 296
+    "Automatisk logging", // 296
     "Auto sommertid med NTP", // 297
     "Angi NTP-tidsforskyvning", // 298
     "Loggbok har over 130 oppføringer.\nLast ned CSV for behandling.", // 299
@@ -5308,12 +5608,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Sett rabbitears.info passord", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-adresse", // 324
+    "Nettverksmaske", // 325
+    "Standardruter", // 326
     "Direkte innstilling", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batteriet er nesten tomt", // 328
+    "TRYKK EN TAST FOR Å LUKKE", // 329
+    "Innstillinger for inndata", // 330
+    "Frekvenstastatur", // 331
+    "INNDATA", // 332
+    "MODE: TILBAKE", // 333
+    "Enhetsinnstillinger", // 334
+    "ENHET", // 335
+    "Skjerminnstillinger", // 336
+    "SKJERM", // 337
+    "Snu dreieretning", // 338
+    "Optisk enkoder", // 339
+    "Roter skjermen 180°", // 340
+    "Inverter farger", // 341
+    "Analogt måleinstrument", // 342
+    "Fabrikkinnstillinger", // 343
+    "Nei", // 344
+    "Ja", // 345
+    "Starte kalibrering?", // 346
+    "Slette innstillinger\nog lagrede stasjoner?", // 347
+    "Slipp alle\nkontroller", // 348
+    "Fullt utslag" // 349
   },
 
   { "Español", // Spanish
@@ -5394,7 +5714,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Apagado automático", // 75
     "Pantalla apagada", // 76
     "Tema", // 77
-    "Skin", // 78
+    "Apariencia", // 78
     "Aplicaciones detectadas", // 79
     "Mín.", // 80
     "Velocidad SPI\ndinámica", // 81
@@ -5476,7 +5796,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Correo de línea directa", // 157
     "Correo de estudio", // 158
     "Correo electrónico", // 159
-    "Chat", // 160
+    "Charla", // 160
     "Centro de chat", // 161
     "Pregunta de votación", // 162
     "Centro de votación", // 163
@@ -5598,8 +5918,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Rango", // 279
     "Completo", // 280
     "Esperar solo\ncon señal", // 281
-    "Toque la esquina\nresaltada", // 282
-    "Calibrar pantalla\ntáctil", // 283
+    "Toque la esquina resaltada", // 282
+    "Calibrar pantalla táctil", // 283
     "Mantenga BW para\ndetener DX", // 284
     "Seleccionar ancho\nde banda", // 285
     "Libro de registro", // 286
@@ -5640,12 +5960,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Establecer contraseña rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Dirección IP", // 324
+    "Máscara de subred", // 325
+    "Puerta de enlace", // 326
     "Sintonización directa", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batería casi agotada", // 328
+    "PULSE UNA TECLA PARA CERRAR", // 329
+    "Ajustes de entrada", // 330
+    "Teclado frecuencia", // 331
+    "ENTRADA", // 332
+    "MODE: VOLVER", // 333
+    "Ajustes del dispositivo", // 334
+    "DISPOSITIVO", // 335
+    "Ajustes de pantalla", // 336
+    "PANTALLA", // 337
+    "Invertir giro", // 338
+    "Codificador óptico", // 339
+    "Girar pantalla 180°", // 340
+    "Invertir colores", // 341
+    "Medidor analógico", // 342
+    "Restablecer de fábrica", // 343
+    "No", // 344
+    "Sí", // 345
+    "¿Iniciar calibración?", // 346
+    "¿Borrar ajustes\ny emisoras guardadas?", // 347
+    "Suelte todos\nlos controles", // 348
+    "Escala completa" // 349
   },
 
   { "Português", // Portuguese
@@ -5726,7 +6066,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Desligamento automático", // 75
     "Desligar a tela", // 76
     "Tema", // 77
-    "Skin", // 78
+    "Aspeto", // 78
     "Aplicativos detectados", // 79
     "Min.", // 80
     "Velocidade dinâmica\nde SPI", // 81
@@ -5788,7 +6128,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Tráfego", // 137
     "Alarme", // 138
     "Anúncio", // 139
-    "Website", // 140
+    "Sítio web", // 140
     "Outros", // 141
     "PS curto", // 142
     "PS longo", // 143
@@ -5800,15 +6140,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Frequência", // 149
     "Página inicial", // 150
     "Subcanal", // 151
-    "Hotline", // 152
+    "Linha direta", // 152
     "Telefone do estúdio", // 153
     "Telefone", // 154
     "SMS do estúdio", // 155
     "SMS", // 156
-    "E-mail da hotline", // 157
+    "E-mail da linha direta", // 157
     "E-mail do estúdio", // 158
     "E-mail", // 159
-    "Chat", // 160
+    "Conversa", // 160
     "Centro de chat", // 161
     "Pergunta de votação", // 162
     "Centro de votação", // 163
@@ -5824,7 +6164,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Opções de bateria", // 173
     "Mostrar voltagem", // 174
     "Mostrar porcentagem", // 175
-    "Buffering RT", // 176
+    "Memória intermédia RT", // 176
     "Configurações principais", // 177
     "Configurações de áudio", // 178
     "Configurações de exibição", // 179
@@ -5844,8 +6184,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "FM", // 193
     "AM", // 194
     "CONECTAR", // 195
-    "DX MODE", // 196
-    "AUTO MEM", // 197
+    "MODO DX", // 196
+    "MEMÓRIA AUTO", // 197
     "AM AGC", // 198
     "Desênfase FM", // 199
     "Pequeno", // 200
@@ -5897,7 +6237,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Progr. Infantil", // 246
     "Acontec. Social", // 247
     "Religião", // 248
-    "Phone-In", // 249
+    "Participação telefónica", // 249
     "Viagens", // 250
     "Lazer", // 251
     "Música de Jazz", // 252
@@ -5930,8 +6270,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Intervalo", // 279
     "Completo", // 280
     "Espera tempo apenas\nquando sinal", // 281
-    "Pressione o\ncanto inscrito", // 282
-    "Para calibração\nda tela de toque", // 283
+    "Toque no canto realçado", // 282
+    "Calibração do ecrã tátil", // 283
     "Segure BW para parar", // 284
     "Selecione largura de banda", // 285
     "Seu livro de registro", // 286
@@ -5972,12 +6312,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Definir senha rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Endereço IP", // 324
+    "Máscara de sub-rede", // 325
+    "Porta de ligação", // 326
     "Sintonização direta", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Bateria quase vazia", // 328
+    "PRIMA UMA TECLA PARA FECHAR", // 329
+    "Definições de entrada", // 330
+    "Teclado frequência", // 331
+    "ENTRADA", // 332
+    "MODE: VOLTAR", // 333
+    "Definições do aparelho", // 334
+    "APARELHO", // 335
+    "Definições do ecrã", // 336
+    "ECRÃ", // 337
+    "Inverter rotação", // 338
+    "Codificador óptico", // 339
+    "Rodar ecrã 180°", // 340
+    "Inverter cores", // 341
+    "Medidor analógico", // 342
+    "Reposição de fábrica", // 343
+    "Não", // 344
+    "Sim", // 345
+    "Iniciar calibração?", // 346
+    "Apagar definições\ne estações guardadas?", // 347
+    "Solte todos\nos controlos", // 348
+    "Escala completa" // 349
   },
 
   { "Srpski", // Serbian
@@ -5989,7 +6349,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Enkoder postavljen\nna optički", // 6
     "Enkoder postavljen\nna standard", // 7
     "FM/AM prijemnik", // 8
-    "Tuner: !Nema!", // 9
+    "Prijemnik: !Nema!", // 9
     "Jačina zvuka", // 10
     "Konverter", // 11
     "Donja ivica opsega", // 12
@@ -6015,7 +6375,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "PRITISNITE MODE ZA IZLAZ I SPAS", // 32
     "PRITISNITE BAND DA ZATVORITE", // 33
     "SKENIRANJE...", // 34
-    "Tuner nije\ndetektovan", // 35
+    "Prijemnik nije\notkriven", // 35
     "AM antena\npojačanje", // 36
     "FM AGC", // 37
     "Prikazivanje RDS\ngrešaka", // 38
@@ -6023,8 +6383,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Izaberite jezik", // 40
     "PI zaključan\nCT sinhronizacija", // 41
     "Greška! Nema RDS signala!", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Blago utišavanje FM", // 43
+    "Blago utišavanje AM", // 44
     "Pucketanje na\nivici opsega", // 45
     "Region", // 46
     "Evropa", // 47
@@ -6044,8 +6404,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Prikazivanje PI\ngrešaka", // 61
     "Koristi šum", // 62
     "Merač modulisanja", // 63
-    "AM Noise blanker", // 64
-    "FM Noise blanker", // 65
+    "AM impulsni prigušivač", // 64
+    "FM impulsni prigušivač", // 65
     "Podrazumevana\npodešavanja učitana", // 66
     "Audio izlaz", // 67
     "Dozvoli podešavanje\nbez screensavera", // 68
@@ -6071,7 +6431,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Nema EON dostupnog", // 88
     "Nema RT+ dostupnog", // 89
     "FM podrazumevani\nkorak", // 90
-    "Screensaver", // 91
+    "Čuvar ekrana", // 91
     "Sek", // 92
     "Način rada sa\nsatom", // 93
     "1% osvetljenost", // 94
@@ -6135,11 +6495,11 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Vruća linija", // 152
     "Studio telefon", // 153
     "Telefon", // 154
-    "SMS studio", // 155
+    "SMS studija", // 155
     "SMS", // 156
     "Email vruća linija", // 157
-    "Email studio", // 158
-    "Email", // 159
+    "E-pošta studija", // 158
+    "E-pošta", // 159
     "Razgovor", // 160
     "Razgovorni centar", // 161
     "Pitanje za glasanje", // 162
@@ -6150,7 +6510,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Kupovina", // 167
     "Preuzmi podatke", // 168
     "MW podrazumevani\nkorak", // 169
-    "Tangerine", // 170
+    "Mandarina", // 170
     "Okean", // 171
     "Indigo", // 172
     "Opcije baterije", // 173
@@ -6176,8 +6536,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "FM", // 193
     "AM", // 194
     "POVEZIVANJE", // 195
-    "DX MODE", // 196
-    "AUTO MEM", // 197
+    "DX REŽIM", // 196
+    "AUTO MEMORIJA", // 197
     "AM AGC", // 198
     "FM de-emfaza", // 199
     "Malo", // 200
@@ -6251,7 +6611,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Samo sa RDS", // 268
     "Pokreni automatsko\nmemorijsko pamćenje", // 269
     "Automatsko memorisanje", // 270
-    "Stationlist ID", // 271
+    "Stationlist oznaka", // 271
     "Pronađeno", // 272
     "Abort! Nedostaju kanali", // 273
     "Abort! Korisnik je\npritisnuo dugme", // 274
@@ -6262,8 +6622,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Opseg", // 279
     "Puno", // 280
     "Vreme čekanja na signal", // 281
-    "Pritisnite označeni\nugao", // 282
-    "Za kalibraciju\nekrana", // 283
+    "Pritisnite označeni ugao", // 282
+    "Kalibracija dodirnog ekrana", // 283
     "Drži BW da staneš", // 284
     "Izaberi širinu\nopsega", // 285
     "Tvoj dnevnik", // 286
@@ -6280,7 +6640,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Auto DST na\nNTP vremenu", // 297
     "Postavite NTP\nvremenski offset", // 298
     "Dnevnik sadrži više od 130 unosa, što viewer ne može obraditi. Preuzmite CSV fajl za obradu.", // 299
-    "Canada", // 300
+    "Kanada", // 300
     "Повежите овај уређај на WiFi мрежу за омогућавање даљинских функција.", // 301
     "Конфигурација WiFi", // 302
     "Скривена мрежа", // 303
@@ -6304,12 +6664,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Поставите rabbitears.info лозинку", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP adresa", // 324
+    "Maska podmreže", // 325
+    "Mrežni prolaz", // 326
     "Директно подешавање", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Baterija je skoro prazna", // 328
+    "PRITISNITE TASTER ZA ZATVARANJE", // 329
+    "Podešavanja unosa", // 330
+    "Tastatura frekv.", // 331
+    "UNOS", // 332
+    "MODE: NAZAD", // 333
+    "Podešavanja uređaja", // 334
+    "UREĐAJ", // 335
+    "Podešavanja ekrana", // 336
+    "EKRAN", // 337
+    "Obrni smer enkodera", // 338
+    "Optički enkoder", // 339
+    "Okreni ekran 180°", // 340
+    "Obrni boje", // 341
+    "Analogni merač", // 342
+    "Fabrička podešavanja", // 343
+    "Ne", // 344
+    "Da", // 345
+    "Pokrenuti kalibraciju?", // 346
+    "Obrisati podešavanja\ni sačuvane stanice?", // 347
+    "Otpustite sve\nkontrole", // 348
+    "Pun otklon" // 349
   },
 
   { "Suomi", // Finnish
@@ -6355,8 +6735,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Valitse kieli", // 40
     "PI lukittu CT synkronointi", // 41
     "Virhe! Ei RDS-signaalia", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Pehmeä mykistys FM", // 43
+    "Pehmeä mykistys AM", // 44
     "Ääni rajalla", // 45
     "Alue", // 46
     "Eurooppa", // 47
@@ -6467,12 +6847,12 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Puh. linja", // 152
     "Studion puhelin", // 153
     "Puhelin", // 154
-    "SMS studio", // 155
+    "Studion tekstiviestit", // 155
     "SMS", // 156
     "Sähköposti puhelinlinja", // 157
     "Sähköposti studio", // 158
     "Sähköposti", // 159
-    "Chat", // 160
+    "Keskustelu", // 160
     "Chattikeskus", // 161
     "Äänestyskysymys", // 162
     "Äänestyskeskus", // 163
@@ -6583,7 +6963,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Tallenna vain RDS:n\nkanssa", // 268
     "Aloita\nautomaattinen muistio", // 269
     "Automaattinen muisti", // 270
-    "Stationlist ID", // 271
+    "Stationlist-tunnus", // 271
     "Löytyi", // 272
     "Keskeytä! Muistikanavat loppu", // 273
     "Keskeytä! Käyttäjä painoi nappia", // 274
@@ -6595,7 +6975,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Täysi", // 280
     "Odota-aika\nvain signaalille", // 281
     "Paina korostettua kulmaa", // 282
-    "Kalibroi kosketusnäyttö", // 283
+    "Kosketusnäytön kalibrointi", // 283
     "Pidä BW-nappia painettuna\npysäyttääksesi DX-skannerin", // 284
     "Valitse\nkaistanleveys", // 285
     "Oma lokikirja", // 286
@@ -6636,12 +7016,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Aseta rabbitears.info salasana", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-osoite", // 324
+    "Aliverkon peite", // 325
+    "Yhdyskäytävä", // 326
     "Suora viritys", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Akku lähes tyhjä", // 328
+    "SULJE PAINAMALLA NÄPPÄINTÄ", // 329
+    "Syöttöasetukset", // 330
+    "Taajuusnäppäimistö", // 331
+    "SYÖTTÖ", // 332
+    "MODE: TAKAISIN", // 333
+    "Laiteasetukset", // 334
+    "LAITE", // 335
+    "Näyttöasetukset", // 336
+    "NÄYTTÖ", // 337
+    "Käännä kiertosuunta", // 338
+    "Optinen enkooderi", // 339
+    "Käännä näyttöä 180°", // 340
+    "Käänteiset värit", // 341
+    "Analoginen mittari", // 342
+    "Tehdasasetukset", // 343
+    "Ei", // 344
+    "Kyllä", // 345
+    "Aloitetaanko kalibrointi?", // 346
+    "Poistetaanko asetukset\nja tallennetut asemat?", // 347
+    "Vapauta kaikki\nohjaimet", // 348
+    "Täysi asteikko" // 349
   },
 
   { "Dansk", // Danish
@@ -6796,15 +7196,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Frekvens", // 149
     "Hjemmeside", // 150
     "Underkanal", // 151
-    "Hotline", // 152
+    "Direkte linje", // 152
     "Studiotelefon", // 153
     "Telefon", // 154
     "SMS studie", // 155
     "SMS", // 156
-    "E-mail hotline", // 157
+    "E-mail til direkte linje", // 157
     "E-mail studie", // 158
     "E-mail", // 159
-    "Chat", // 160
+    "Samtale", // 160
     "Chatcenter", // 161
     "Afstemning spørgsmål", // 162
     "Afstemning center", // 163
@@ -6814,7 +7214,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Køb", // 167
     "Hent data", // 168
     "MW-standardtrin", // 169
-    "Tangerine", // 170
+    "Mandarin", // 170
     "Hav", // 171
     "Indigo", // 172
     "Batteriindstillinger", // 173
@@ -6841,9 +7241,9 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "TILSLUT", // 195
     "DX-MODE", // 196
-    "AUTO MEM", // 197
+    "AUTO HUK.", // 197
     "AM AGC", // 198
-    "FM-deemphasis", // 199
+    "FM-deemfase", // 199
     "Lille", // 200
     "Stor", // 201
     "Alle", // 202
@@ -6904,7 +7304,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Dokumentar", // 257
     "Alarmtest", // 258
     "Alarm!!!", // 259
-    "Initial", // 260
+    "Indledende", // 260
     "Altid", // 261
     "Vis ur", // 262
     "Vis lang PS", // 263
@@ -6927,7 +7327,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Fuld", // 280
     "Ventetid på\nkun signal", // 281
     "Tryk på det markerede hjørne", // 282
-    "For at kalibrere touchskærmen", // 283
+    "Kalibrering af berøringsskærm", // 283
     "Hold BW for at stoppe", // 284
     "Vælg båndbredde", // 285
     "Din logbog", // 286
@@ -6940,7 +7340,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Logbog ryddet", // 293
     "Rydning mislykkedes", // 294
     "Kan ikke tilføje!\nLogbogen er fuld!", // 295
-    "Autologger", // 296
+    "Automatisk logning", // 296
     "Auto DST på\nNTP-tid", // 297
     "Indstil NTP-tidsforskel", // 298
     "Logbogen indeholder over 130 poster, som fremviseren ikke kan behandle. Download CSV-filen for at behandle den.", // 299
@@ -6968,12 +7368,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Indstil rabbitears.info adgangskode", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-adresse", // 324
+    "Undernetmaske", // 325
+    "Standardgateway", // 326
     "Direkte indstilling", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batteriet er næsten tomt", // 328
+    "TRYK EN TAST FOR AT LUKKE", // 329
+    "Indtastningsvalg", // 330
+    "Frekvenstastatur", // 331
+    "INDTAST", // 332
+    "MODE: TILBAGE", // 333
+    "Enhedsindstillinger", // 334
+    "ENHED", // 335
+    "Skærmindstillinger", // 336
+    "SKÆRM", // 337
+    "Vend drejeretning", // 338
+    "Optisk enkoder", // 339
+    "Drej skærmen 180°", // 340
+    "Inverter farver", // 341
+    "Analogt måleinstrument", // 342
+    "Fabriksindstillinger", // 343
+    "Nej", // 344
+    "Ja", // 345
+    "Start kalibrering?", // 346
+    "Slet indstillinger\nog gemte stationer?", // 347
+    "Slip alle\nbetjeningselementer", // 348
+    "Fuldt udslag" // 349
   },
 
   { "Svenska", // Swedish
@@ -7019,8 +7439,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Välj språk", // 40
     "PI-låst CT-synk", // 41
     "Fel! Ingen RDS-signal", // 42
-    "Softmute FM", // 43
-    "Softmute AM", // 44
+    "Mjuk dämpning FM", // 43
+    "Mjuk dämpning AM", // 44
     "Pip vid bandkant", // 45
     "Region", // 46
     "Europa", // 47
@@ -7040,8 +7460,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Visa PI-fel", // 61
     "Använd brusspärr", // 62
     "Modulationsmätare", // 63
-    "AM noise blanker", // 64
-    "FM noise blanker", // 65
+    "AM impulsdämpning", // 64
+    "FM impulsdämpning", // 65
     "Standarder laddade", // 66
     "Ljudutgång", // 67
     "Väck inte skärmen\nvid avstämning", // 68
@@ -7128,15 +7548,15 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Frekvens", // 149
     "Hemsida", // 150
     "Underkanal", // 151
-    "Hotline", // 152
+    "Direktlinje", // 152
     "Studiotelefon", // 153
     "Telefon", // 154
-    "SMS studio", // 155
+    "SMS till studion", // 155
     "SMS", // 156
-    "E-post hotline", // 157
+    "E-post direktlinje", // 157
     "E-post studio", // 158
     "E-post", // 159
-    "Chat", // 160
+    "Samtal", // 160
     "Chattcenter", // 161
     "Röstningsfråga", // 162
     "Röstningscenter", // 163
@@ -7146,8 +7566,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Köp", // 167
     "Få data", // 168
     "MV standard\nsteglängd", // 169
-    "Tangerine", // 170
-    "Ocean", // 171
+    "Mandarin", // 170
+    "Hav", // 171
     "Indigo", // 172
     "Batterialternativ", // 173
     "Visa spänning", // 174
@@ -7173,7 +7593,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "AM", // 194
     "ANSLUT", // 195
     "DX-LÄGE", // 196
-    "AUTO MEM", // 197
+    "AUTO MINNE", // 197
     "AM AGC", // 198
     "FM de-emfas", // 199
     "Små", // 200
@@ -7255,11 +7675,11 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Töm minnesplatser", // 276
     "raderad", // 277
     "Förhindra dubbla PI", // 278
-    "Range", // 279
+    "Intervall", // 279
     "Fullt", // 280
     "Väntetid bara\nvid signal", // 281
-    "Tryck på markerat hörn", // 282
-    "för att kalibrera touchskärm", // 283
+    "Tryck på det markerade hörnet", // 282
+    "Kalibrering av pekskärm", // 283
     "Håll BW-knappen för att\nstoppa DX-skanning", // 284
     "Välj bandbredd", // 285
     "Din loggbok", // 286
@@ -7300,12 +7720,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Ställ in rabbitears.info lösenord", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "IP-adress", // 324
+    "Nätmask", // 325
+    "Standardgateway", // 326
     "Direktinställning", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Batteriet är nästan tomt", // 328
+    "TRYCK EN KNAPP FÖR ATT STÄNGA", // 329
+    "Inmatningsinställningar", // 330
+    "Frekvenstangentbord", // 331
+    "INMATNING", // 332
+    "MODE: TILLBAKA", // 333
+    "Enhetsinställningar", // 334
+    "ENHET", // 335
+    "Skärminställningar", // 336
+    "SKÄRM", // 337
+    "Vänd vridriktning", // 338
+    "Optisk enkoder", // 339
+    "Rotera skärmen 180°", // 340
+    "Invertera färger", // 341
+    "Analog mätare", // 342
+    "Fabriksinställningar", // 343
+    "Nej", // 344
+    "Ja", // 345
+    "Starta kalibrering?", // 346
+    "Radera inställningar\noch sparade stationer?", // 347
+    "Släpp alla\nreglage", // 348
+    "Fullt utslag" // 349
   },
 
   { "Gaeilge", // Irish
@@ -7372,8 +7812,8 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Taispeáin earráidí PI", // 61
     "Úsáid scuailse", // 62
     "Méadar leibhéil fuaime", // 63
-    "AM Noise blanker", // 64
-    "FM Noise blanker", // 65
+    "Bacóir torainn AM", // 64
+    "Bacóir torainn FM", // 65
     "Socruithe réamhshocraithe lódáilte", // 66
     "Aschur fuaime", // 67
     "Ceadaigh tiúnadh gan an\ntaispeánach coigiltis a mhúchadh", // 68
@@ -7591,7 +8031,7 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Iomlán", // 280
     "Am feithimh ar\nchomhartha amháin", // 281
     "Brúigh an cúinne aibhsithe", // 282
-    "Chun an scáileán teagmhála a chalabrú", // 283
+    "Calabrú an scáileáin tadhaill", // 283
     "Coinnigh an cnaipe BW le\nstad a chur leis an scanóir DX", // 284
     "Roghnaigh Leithead Banna", // 285
     "Do logleabhar", // 286
@@ -7632,12 +8072,32 @@ static const char* const myLanguage[23][330] PROGMEM = {
     "Socraigh pasfhocal rabbitears.info", // 321
     "ID", // 322
     "DHCP", // 323
-    "IP address", // 324
-    "Subnet mask", // 325
-    "Gateway", // 326
+    "Seoladh IP", // 324
+    "Masc folíonra", // 325
+    "Geata", // 326
     "Tiúnadh díreach", // 327
-    "Battery almost empty", // 328
-    "PRESS ANY BUTTON TO CLOSE" // 329
+    "Ceallra beagnach folamh", // 328
+    "BRÚIGH CNAIPE CHUN DÚNADH", // 329
+    "Socruithe ionchuir", // 330
+    "Eochracha minicíochta", // 331
+    "IONCHUR", // 332
+    "MODE: AR AIS", // 333
+    "Socruithe gléis", // 334
+    "GLÉAS", // 335
+    "Socruithe scáileáin", // 336
+    "SCÁILEÁN", // 337
+    "Aisiompaigh rothlú", // 338
+    "Ionchódóir optúil", // 339
+    "Rothlaigh scáileán 180°", // 340
+    "Aisiompaigh dathanna", // 341
+    "Méadar analógach", // 342
+    "Athshocrú monarchan", // 343
+    "Níl", // 344
+    "Tá", // 345
+    "Tosaigh calabrú?", // 346
+    "Scrios socruithe\nagus stáisiúin shábháilte?", // 347
+    "Scaoil na rialtáin\ngo léir", // 348
+    "Lánscála" // 349
   }
 };
 #endif

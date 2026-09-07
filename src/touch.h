@@ -2,6 +2,7 @@
 #define TOUCH_H
 
 #include <Arduino.h>
+#include "frequency_input.h"
 #include <TFT_eSPI.h>
 #include "TEF668X.h"
 
@@ -12,13 +13,13 @@ extern bool advancedRDS;
 extern bool afpage;
 extern bool afscreen;
 extern bool batteryWarningActive;
+extern bool batterydetect;
+extern bool wifi;
+extern bool screenmute;
+extern void CycleBatteryDisplay();
 extern bool bwtouchtune;
 extern bool BWtune;
 extern bool freqkeypadtune;
-extern bool freqBandPicker;
-extern byte freqPickerCount;
-extern byte freqPickerBands[5];
-extern int freqPickerFreqs[5];
 extern bool leave;
 extern bool menu;
 extern bool menuopen;
@@ -35,7 +36,7 @@ extern byte EQset;
 extern byte iMSEQ;
 extern byte iMSset;
 extern byte menuitem;
-extern byte items[10];
+extern byte items[];
 extern byte menupage;
 extern byte tunemode;
 extern int menuoption;
@@ -71,6 +72,5 @@ extern void BuildFreqKeypad();
 extern void showFreqKeypad();
 extern void FreqKeypadConfirm();
 extern void ApplyBandMatch(byte b, int freq);
-extern void showFreqBandPicker();
 
 #endif

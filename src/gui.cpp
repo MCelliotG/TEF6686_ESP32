@@ -20,16 +20,16 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       BackgroundColor = Black;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
-      FreqColor = Yellow;
-      FreqColorSmooth = YellowSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
       StereoColor = Red;
       StereoColorSmooth = RedSmooth;
-      RDSColor = Yellow;
-      RDSColorSmooth = YellowSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Teal;
       RDSDropoutColorSmooth = TealSmooth;
       BarSignificantColor = Red;
@@ -51,28 +51,28 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = CyanFrame;
       GreyoutColor = CyanGrey;
       BackgroundColor = Black;
-      FreqColor = Cyan;
-      FreqColorSmooth = CyanSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
-      StereoColor = Cyan;
-      StereoColorSmooth = CyanSmooth;
-      RDSColor = Cyan;
-      RDSColorSmooth = CyanSmooth;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = CyanDark;
       RDSDropoutColorSmooth = CyanDarkSmooth;
       BarSignificantColor = Purple;
       BarInsignificantColor = Skyblue;
       ModBarSignificantColor = Blue;
-      ModBarInsignificantColor = Cyan;
-      BWAutoColor = Teal;
-      BWAutoColorSmooth = TealSmooth;
-      BatteryValueColor = Teal;
-      BatteryValueColorSmooth = TealSmooth;
+      ModBarInsignificantColor = PrimaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -81,29 +81,29 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       PrimaryColorSmooth = CrimsonSmooth;
       SecondaryColor = Coral;
       SecondaryColorSmooth = CoralSmooth;
-      FrameColor = CrimsonSmooth;
+      FrameColor = PrimaryColorSmooth;
       GreyoutColor = PaleGrey;
       BackgroundColor = Black;
-      FreqColor = Crimson;
-      FreqColorSmooth = CrimsonSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
-      StereoColor = Crimson;
+      StereoColor = PrimaryColor;
       StereoColorSmooth = Black;
-      RDSColor = Crimson;
+      RDSColor = PrimaryColor;
       RDSColorSmooth = Black;
       RDSDropoutColor = CrimsonDark;
       RDSDropoutColorSmooth = CrimsonDarkSmooth;
       BarSignificantColor = Yellow;
-      BarInsignificantColor = Crimson;
+      BarInsignificantColor = PrimaryColor;
       ModBarSignificantColor = Orange;
-      ModBarInsignificantColor = Coral;
-      BWAutoColor = Coral;
-      BWAutoColorSmooth = CoralSmooth;
+      ModBarInsignificantColor = SecondaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
       BatteryValueColor = Watermelon;
       BatteryValueColorSmooth = WatermelonSmooth;
       WifiColorLow = PrimaryColor;
@@ -116,29 +116,29 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       SecondaryColorSmooth = Black;
       FrameColor = GreenGrey;
       GreyoutColor = PaleGrey;
-      BackgroundColor = Black;
-      FreqColor = White;
-      FreqColorSmooth = Black;
-      ActiveColor = White;
-      ActiveColorSmooth = Black;
+      BackgroundColor = PrimaryColorSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
+      ActiveColor = PrimaryColor;
+      ActiveColorSmooth = PrimaryColorSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
-      StereoColor = White;
-      StereoColorSmooth = Black;
-      RDSColor = White;
-      RDSColorSmooth = Black;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = PaleGrey;
-      RDSDropoutColorSmooth = Black;
-      BarSignificantColor = Honeydew;
-      BarInsignificantColor = White;
-      ModBarSignificantColor = Honeydew;
-      ModBarInsignificantColor = White;
+      RDSDropoutColorSmooth = PrimaryColorSmooth;
+      BarSignificantColor = SecondaryColor;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
+      ModBarInsignificantColor = PrimaryColor;
       BWAutoColor = PureGrey;
-      BWAutoColorSmooth = Black;
-      BatteryValueColor = White;
-      BatteryValueColorSmooth = Black;
+      BWAutoColorSmooth = PrimaryColorSmooth;
+      BatteryValueColor = PrimaryColor;
+      BatteryValueColorSmooth = PrimaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -150,28 +150,28 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = GreenGrey;
       GreyoutColor = Maroon;
       BackgroundColor = Prussian;
-      FreqColor = Orange;
-      FreqColorSmooth = OrangeSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
-      StereoColor = Orange;
+      StereoColor = PrimaryColor;
       StereoColorSmooth = CyanSmooth;
-      RDSColor = Orange;
-      RDSColorSmooth = OrangeSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Dallas;
       RDSDropoutColorSmooth = DallasSmooth;
-      BarSignificantColor = Tangerine;
-      BarInsignificantColor = Orange;
-      ModBarSignificantColor = Tangerine;
+      BarSignificantColor = SecondaryColor;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
       ModBarInsignificantColor = Yolk;
-      BWAutoColor = Tangerine;
-      BWAutoColorSmooth = TangerineSmooth;
-      BatteryValueColor = Tangerine;
-      BatteryValueColorSmooth = TangerineSmooth;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -180,31 +180,31 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       PrimaryColorSmooth = GreenDark;
       SecondaryColor = Cabbage;
       SecondaryColorSmooth = CabbageSmooth;
-      FrameColor = GreenDark;
+      FrameColor = PrimaryColorSmooth;
       GreyoutColor = PaleGrey;
       BackgroundColor = Black;
-      FreqColor = Green;
-      FreqColorSmooth = GreenDark;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Teal;
       InsignificantColorSmooth = TealSmooth;
-      StereoColor = Green;
-      StereoColorSmooth = GreenDark;
-      RDSColor = Green;
-      RDSColorSmooth = GreenDark;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Laurel;
       RDSDropoutColorSmooth = LaurelSmooth;
-      BarSignificantColor = Green;
-      BarInsignificantColor = Cabbage;
-      ModBarSignificantColor = Green;
+      BarSignificantColor = PrimaryColor;
+      BarInsignificantColor = SecondaryColor;
+      ModBarSignificantColor = PrimaryColor;
       ModBarInsignificantColor = Teal;
-      BWAutoColor = Cabbage;
-      BWAutoColorSmooth = CabbageSmooth;
-      BatteryValueColor = Cabbage;
-      BatteryValueColorSmooth = CabbageSmooth;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -216,28 +216,28 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = Tyrian;
       GreyoutColor = Blackberry;
       BackgroundColor = Black;
-      FreqColor = Sakura;
-      FreqColorSmooth = SakuraSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Pink;
       InsignificantColorSmooth = PinkSmooth;
-      StereoColor = Sakura;
-      StereoColorSmooth = SakuraSmooth;
-      RDSColor = Sakura;
-      RDSColorSmooth = SakuraSmooth;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = SakuraGrey;
       RDSDropoutColorSmooth = SakuraGreySmooth;
       BarSignificantColor = Violet;
-      BarInsignificantColor = Sakura;
-      ModBarSignificantColor = Cherry;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
       ModBarInsignificantColor = Pink;
-      BWAutoColor = Cherry;
-      BWAutoColorSmooth = CherrySmooth;
-      BatteryValueColor = Cherry;
-      BatteryValueColorSmooth = CherrySmooth;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -246,31 +246,31 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       PrimaryColorSmooth = White;
       SecondaryColor = Darkgrey;
       SecondaryColorSmooth = White;
-      FrameColor = Darkgrey;
+      FrameColor = SecondaryColor;
       GreyoutColor = PureGrey;
       BackgroundColor = Honeydew;
-      FreqColor = Black;
-      FreqColorSmooth = White;
-      ActiveColor = Black;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
+      ActiveColor = PrimaryColor;
       ActiveColorSmooth = Honeydew;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Green;
       InsignificantColorSmooth = GreenSmooth;
-      StereoColor = Black;
+      StereoColor = PrimaryColor;
       StereoColorSmooth = Honeydew;
-      RDSColor = Black;
+      RDSColor = PrimaryColor;
       RDSColorSmooth = Honeydew;
       RDSDropoutColor = PureGrey;
-      RDSDropoutColorSmooth = White;
-      BarSignificantColor = Black;
+      RDSDropoutColorSmooth = PrimaryColorSmooth;
+      BarSignificantColor = PrimaryColor;
       BarInsignificantColor = Cabbage;
-      ModBarSignificantColor = Black;
+      ModBarSignificantColor = PrimaryColor;
       ModBarInsignificantColor = Green;
       BWAutoColor = PureGrey;
-      BWAutoColorSmooth = White;
-      BatteryValueColor = Black;
-      BatteryValueColorSmooth = White;
+      BWAutoColorSmooth = PrimaryColorSmooth;
+      BatteryValueColor = PrimaryColor;
+      BatteryValueColorSmooth = PrimaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -282,7 +282,7 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = Chocolate;
       GreyoutColor = Spice;
       BackgroundColor = Black;
-      FreqColor = Tangerine;
+      FreqColor = PrimaryColor;
       FreqColorSmooth = IndigoSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
@@ -290,20 +290,20 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Orange;
       InsignificantColorSmooth = OrangeSmooth;
-      StereoColor = Tangerine;
+      StereoColor = PrimaryColor;
       StereoColorSmooth = IndigoSmooth;
-      RDSColor = Tangerine;
+      RDSColor = PrimaryColor;
       RDSColorSmooth = IndigoSmooth;
       RDSDropoutColor = Copper;
       RDSDropoutColorSmooth = CopperSmooth;
-      BarSignificantColor = Yolk;
+      BarSignificantColor = SecondaryColor;
       BarInsignificantColor = Orange;
-      ModBarSignificantColor = Yolk;
-      ModBarInsignificantColor = Tangerine;
-      BWAutoColor = Yolk;
-      BWAutoColorSmooth = YolkSmooth;
-      BatteryValueColor = Yolk;
-      BatteryValueColorSmooth = YolkSmooth;
+      ModBarSignificantColor = SecondaryColor;
+      ModBarInsignificantColor = PrimaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -315,28 +315,28 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = Navy;
       GreyoutColor = Cornblue;
       BackgroundColor = Black;
-      FreqColor = Ocean;
-      FreqColorSmooth = OceanSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Cyan;
       InsignificantColorSmooth = CyanSmooth;
-      StereoColor = Ocean;
-      StereoColorSmooth = OceanSmooth;
-      RDSColor = Ocean;
-      RDSColorSmooth = OceanSmooth;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Cove;
       RDSDropoutColorSmooth = CoveSmooth;
-      BarSignificantColor = Ocean;
+      BarSignificantColor = PrimaryColor;
       BarInsignificantColor = Cyan;
-      ModBarSignificantColor = Ocean;
-      ModBarInsignificantColor = Deepsky;
-      BWAutoColor = Deepsky;
-      BWAutoColorSmooth = DeepskySmooth;
-      BatteryValueColor = Deepsky;
-      BatteryValueColorSmooth = DeepskySmooth;
+      ModBarSignificantColor = PrimaryColor;
+      ModBarInsignificantColor = SecondaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -348,28 +348,28 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       FrameColor = Electric;
       GreyoutColor = Meteorite;
       BackgroundColor = Black;
-      FreqColor = Indigo;
-      FreqColorSmooth = IndigoSmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Purple;
       InsignificantColorSmooth = PurpleSmooth;
-      StereoColor = Indigo;
-      StereoColorSmooth = IndigoSmooth;
-      RDSColor = Indigo;
-      RDSColorSmooth = IndigoSmooth;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Logan;
       RDSDropoutColorSmooth = LoganSmooth;
-      BarSignificantColor = Indigo;
+      BarSignificantColor = PrimaryColor;
       BarInsignificantColor = Cherry;
-      ModBarSignificantColor = Indigo;
-      ModBarInsignificantColor = Violet;
-      BWAutoColor = Violet;
-      BWAutoColorSmooth = VioletSmooth;
-      BatteryValueColor = Violet;
-      BatteryValueColorSmooth = VioletSmooth;
+      ModBarSignificantColor = PrimaryColor;
+      ModBarInsignificantColor = SecondaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = SecondaryColor;
+      BatteryValueColorSmooth = SecondaryColorSmooth;
       WifiColorLow = PrimaryColor;
       WifiColorHigh = SecondaryColor;
       break;
@@ -384,20 +384,20 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       BackgroundColor = MaroonSmooth;
       ActiveColor = White;
       ActiveColorSmooth = WhiteSmooth;
-      FreqColor = Cherry;
-      FreqColorSmooth = CherrySmooth;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
       SignificantColor = Red;
       SignificantColorSmooth = RedSmooth;
       InsignificantColor = Violet;
       InsignificantColorSmooth = VioletSmooth;
-      StereoColor = Cherry;
-      StereoColorSmooth = CherrySmooth;
+      StereoColor = PrimaryColor;
+      StereoColorSmooth = PrimaryColorSmooth;
       RDSColor = Coral;
       RDSColorSmooth = CoralSmooth;
       RDSDropoutColor = Logan;
       RDSDropoutColorSmooth = LoganSmooth;
       BarSignificantColor = Yolk;
-      BarInsignificantColor = Cherry;
+      BarInsignificantColor = PrimaryColor;
       ModBarSignificantColor = Red;
       ModBarInsignificantColor = Purple;
       BWAutoColor = Violet;
@@ -426,8 +426,8 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       InsignificantColorSmooth = OceanSmooth;
       StereoColor = Red;
       StereoColorSmooth = RedSmooth;
-      RDSColor = Yellow;
-      RDSColorSmooth = YellowSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
       RDSDropoutColor = Teal;
       RDSDropoutColorSmooth = TealSmooth;
       BarSignificantColor = Red;
@@ -454,12 +454,12 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       ActiveColorSmooth = WhiteSmooth;
       FreqColor = Pink;
       FreqColorSmooth = PinkSmooth;
-      SignificantColor = Cherry;
-      SignificantColorSmooth = CherrySmooth;
-      InsignificantColor = Cyan;
-      InsignificantColorSmooth = CyanSmooth;
-      StereoColor = Cherry;
-      StereoColorSmooth = CherrySmooth;
+      SignificantColor = SecondaryColor;
+      SignificantColorSmooth = SecondaryColorSmooth;
+      InsignificantColor = PrimaryColor;
+      InsignificantColorSmooth = PrimaryColorSmooth;
+      StereoColor = SecondaryColor;
+      StereoColorSmooth = SecondaryColorSmooth;
       RDSColor = Teal;
       RDSColorSmooth = TealSmooth;
       RDSDropoutColor = Logan;
@@ -474,6 +474,105 @@ void doTheme() {  // Use this to put your own colors in: http://www.barth-dev.de
       BatteryValueColorSmooth = CyanDarkSmooth;
       WifiColorLow = Turquoise;
       WifiColorHigh = Pink;
+      break;
+    case 14:  // Aurora
+      PrimaryColor = Teal;
+      PrimaryColorSmooth = TealSmooth;
+      SecondaryColor = Purple;
+      SecondaryColorSmooth = PurpleSmooth;
+      FrameColor = CyanFrame;
+      GreyoutColor = PaleGrey;
+      BackgroundColor = Black;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
+      ActiveColor = White;
+      ActiveColorSmooth = WhiteSmooth;
+      SignificantColor = Red;
+      SignificantColorSmooth = RedSmooth;
+      InsignificantColor = Green;
+      InsignificantColorSmooth = GreenSmooth;
+      StereoColor = SecondaryColor;
+      StereoColorSmooth = SecondaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
+      RDSDropoutColor = CyanDark;
+      RDSDropoutColorSmooth = CyanDarkSmooth;
+      BarSignificantColor = SecondaryColor;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
+      ModBarInsignificantColor = PrimaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = PrimaryColor;
+      BatteryValueColorSmooth = PrimaryColorSmooth;
+      WifiColorLow = PrimaryColor;
+      WifiColorHigh = SecondaryColor;
+      break;
+    case 15:  // Ember
+      PrimaryColor = Coral;
+      PrimaryColorSmooth = CoralSmooth;
+      SecondaryColor = Skyblue;
+      SecondaryColorSmooth = SkyblueSmooth;
+      FrameColor = Chocolate;
+      GreyoutColor = PaleGrey;
+      BackgroundColor = Black;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
+      ActiveColor = White;
+      ActiveColorSmooth = WhiteSmooth;
+      SignificantColor = Red;
+      SignificantColorSmooth = RedSmooth;
+      InsignificantColor = Green;
+      InsignificantColorSmooth = GreenSmooth;
+      StereoColor = SecondaryColor;
+      StereoColorSmooth = SecondaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
+      RDSDropoutColor = Copper;
+      RDSDropoutColorSmooth = CopperSmooth;
+      BarSignificantColor = SecondaryColor;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
+      ModBarInsignificantColor = PrimaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = PrimaryColor;
+      BatteryValueColorSmooth = PrimaryColorSmooth;
+      WifiColorLow = PrimaryColor;
+      WifiColorHigh = SecondaryColor;
+      break;
+    case 16:  // Glacier
+      PrimaryColor = Skyblue;
+      PrimaryColorSmooth = SkyblueSmooth;
+      SecondaryColor = Teal;
+      SecondaryColorSmooth = TealSmooth;
+      FrameColor = Cornblue;
+      GreyoutColor = PaleGrey;
+      BackgroundColor = Black;
+      FreqColor = PrimaryColor;
+      FreqColorSmooth = PrimaryColorSmooth;
+      ActiveColor = White;
+      ActiveColorSmooth = WhiteSmooth;
+      SignificantColor = Red;
+      SignificantColorSmooth = RedSmooth;
+      InsignificantColor = Green;
+      InsignificantColorSmooth = GreenSmooth;
+      StereoColor = SecondaryColor;
+      StereoColorSmooth = SecondaryColorSmooth;
+      RDSColor = PrimaryColor;
+      RDSColorSmooth = PrimaryColorSmooth;
+      RDSDropoutColor = Cove;
+      RDSDropoutColorSmooth = CoveSmooth;
+      BarSignificantColor = SecondaryColor;
+      BarInsignificantColor = PrimaryColor;
+      ModBarSignificantColor = SecondaryColor;
+      ModBarInsignificantColor = PrimaryColor;
+      BWAutoColor = SecondaryColor;
+      BWAutoColorSmooth = SecondaryColorSmooth;
+      BatteryValueColor = PrimaryColor;
+      BatteryValueColorSmooth = PrimaryColorSmooth;
+      WifiColorLow = PrimaryColor;
+      WifiColorHigh = SecondaryColor;
       break;
   }
 }
@@ -642,6 +741,17 @@ void ShowOneLine(byte position, byte item, bool selected) {
     }
   }
 
+  int setupLabel = SetupMenuLabel(menupage, item);
+  if (setupLabel) {
+    FullLineSprite.setTextDatum(TL_DATUM);
+    FullLineSprite.setTextColor(ActiveColor, ActiveColorSmooth, false);
+    FullLineSprite.drawString(FitSetupText(removeNewline(textUI(setupLabel)), 284 - FullLineSprite.textWidth(SetupMenuValue(menupage, item))), 6, 2);
+    FullLineSprite.setTextDatum(TR_DATUM);
+    FullLineSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
+    FullLineSprite.drawString(SetupMenuValue(menupage, item), 298, 2);
+    FullLineSprite.pushSprite(8, 2 + position);
+    return;
+  }
   switch (item) {
     case 0:
       switch (menupage) {
@@ -760,11 +870,11 @@ void ShowOneLine(byte position, byte item, bool selected) {
         case MAINSETTINGS:
           FullLineSprite.setTextDatum(TL_DATUM);
           FullLineSprite.setTextColor(ActiveColor, ActiveColorSmooth, false);
-          FullLineSprite.drawString(removeNewline(textUI(107)), 6, 2);
+          FullLineSprite.drawString(textUI(330), 6, 2);
 
           FullLineSprite.setTextDatum(TR_DATUM);
           FullLineSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
-          FullLineSprite.drawString((touchrotating ? textUI(31) : textUI(30)), 298, 2);
+          FullLineSprite.drawString(">", 298, 2);
           break;
 
         case AUDIOSETTINGS:
@@ -1743,6 +1853,14 @@ void ShowOneButton(byte position, byte item, bool selected) {
     default: PSSprite.pushImage (0, 0, 150, 32, touchselback); break;
   }
 
+  int setupLabel = SetupMenuLabel(menupage, item);
+  if (setupLabel) {
+    PSSprite.setTextDatum(TC_DATUM);
+    PSSprite.setTextColor(ActiveColor, ActiveColorSmooth, false);
+    PSSprite.drawString(shortLine(removeNewline(textUI(setupLabel))), 75, 1);
+    PSSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
+    PSSprite.drawString(shortLine(SetupMenuValue(menupage, item)), 75, 15);
+  } else
   switch (item) {
     case 0:
       switch (menupage) {
@@ -1857,10 +1975,10 @@ void ShowOneButton(byte position, byte item, bool selected) {
         case MAINSETTINGS:
           PSSprite.setTextDatum(TC_DATUM);
           PSSprite.setTextColor(ActiveColor, ActiveColorSmooth, false);
-          PSSprite.drawString(shortLine(removeNewline(textUI(107))), 75, 1);
+          PSSprite.drawString(shortLine(textUI(330)), 75, 1);
 
           PSSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
-          PSSprite.drawString((touchrotating ? textUI(31) : textUI(30)), 75, 15);
+          PSSprite.drawString(">", 75, 15);
           break;
 
         case AUDIOSETTINGS:
@@ -2889,64 +3007,70 @@ void showBWSelector() {
 }
 
 void BuildFreqKeypad() {
-  freq_in = 0;
   switch (CurrentTheme) {
-    case 7: tft.pushImage (0, 0, 320, 240, configurationbackground_wo); break;
-    default: tft.pushImage (0, 0, 320, 240, configurationbackground); break;
+    case 7: tft.pushImage(0, 0, 320, 240, configurationbackground_wo); break;
+    default: tft.pushImage(0, 0, 320, 240, configurationbackground); break;
   }
   tftPrint(ACENTER, textUI(327), 160, 6, PrimaryColor, PrimaryColorSmooth, 16);
   showFreqKeypad();
 }
 
 void showFreqKeypad() {
-  drawButton("1", 0, false, false, 66, false, 4);
-  drawButton("2", 1, false, false, 66, false, 4);
-  drawButton("3", 2, false, false, 66, false, 4);
-  drawButton("X", 3, true, false, 66, false, 4);
-  drawButton("4", 4, false, false, 66, false, 4);
-  drawButton("5", 5, false, false, 66, false, 4);
-  drawButton("6", 6, false, false, 66, false, 4);
-  drawButton("7", 8, false, false, 66, false, 4);
-  drawButton("8", 9, false, false, 66, false, 4);
-  drawButton("9", 10, false, false, 66, false, 4);
-  drawButton("C", 12, false, false, 66, false, 4);
-  drawButton("0", 13, false, false, 66, false, 4);
-  drawButton("<-", 14, false, false, 66, false, 4);
-  drawButton("OK", 15, true, false, 66, false, 4);
-}
-
-void BuildFreqBandPicker() {
-  switch (CurrentTheme) {
-    case 7: tft.pushImage (0, 0, 320, 240, configurationbackground_wo); break;
-    default: tft.pushImage (0, 0, 320, 240, configurationbackground); break;
+  byte matches[5];
+  int freqs[5];
+  byte count = FindBandMatches(freq_in, matches, freqs);
+  int normalized = 0;
+  for (byte i = 0; i < count; i++) {
+    if (matches[i] == freqInputBand) normalized = freqs[i];
   }
-  tftPrint(ACENTER, textUI(327), 160, 6, PrimaryColor, PrimaryColorSmooth, 16);
-  showFreqBandPicker();
-}
-
-void showFreqBandPicker() {
-  int totalHeight = freqPickerCount * 40 - 8;
-  int startY = 30 + (210 - totalHeight) / 2;
-  if (startY < 35) startY = 35;
-
-  for (byte i = 0; i < freqPickerCount; i++) {
-    int y = startY + i * 40;
-    tft.drawRect(10, y, 300, 32, GreyoutColor);
-
-    String label;
-    int f = freqPickerFreqs[i];
-    switch (freqPickerBands[i]) {
-      case BAND_FM:   label = "FM " + String(f / 100) + "." + (f % 100 < 10 ? "0" : "") + String(f % 100) + " MHz"; break;
-      case BAND_OIRT: label = "OIRT " + String(f / 100) + "." + (f % 100 < 10 ? "0" : "") + String(f % 100) + " MHz"; break;
-      case BAND_LW:   label = "LW " + String(f) + " kHz"; break;
-      case BAND_MW:   label = "MW " + String(f) + " kHz"; break;
-      case BAND_SW:   label = "SW " + String(f) + " kHz"; break;
+  tft.fillRect(4, 30, 312, 34, BackgroundColor);
+  // Show exactly what will be tuned, in addition to the digits being entered.
+  String preview = String(freq_in);
+  if (normalized) {
+    preview += " > ";
+    if (freqInputBand < BAND_GAP) preview += String(normalized / 100.0, 2) + " MHz";
+    else preview += String(normalized) + " kHz";
+  }
+  tftPrint(ACENTER, preview, 160, 39,
+           normalized || !freq_in ? PrimaryColor : SignificantColor,
+           PrimaryColorSmooth, 16);
+  for (byte i = 0; i < 5; i++) {
+    const FreqInputRect bounds = FreqInputBounds(i);
+    int x = bounds.x;
+    bool selected = freqInputBand == freqInputBands[i];
+    bool valid = !freq_in;
+    for (byte j = 0; j < count; j++) if (matches[j] == freqInputBands[i]) valid = true;
+    tft.fillRect(bounds.x, bounds.y, bounds.w, bounds.h, selected ? FrameColor : BackgroundColor);
+    tft.drawRect(bounds.x, bounds.y, bounds.w, bounds.h, freqKeyFocus == i ? PrimaryColor : GreyoutColor);
+    if (selected) tft.fillRect(x + 15, 91, 28, 2, PrimaryColor);
+    tftPrint(ACENTER, freqInputBandNames[i], x + 29, 73,
+             valid ? ActiveColor : GreyoutColor, selected ? FrameColor : BackgroundColor, 16);
+  }
+  for (byte key = 0; key < 16; key++) {
+    if (FreqInputControlVisible(key + 5)) {
+      const FreqInputRect bounds = FreqInputBounds(key + 5);
+      const int x = bounds.x + 2, y = bounds.y + 2;
+      tft.fillRect(bounds.x, bounds.y, bounds.w, bounds.h, BackgroundColor);
+      tft.drawRect(bounds.x, bounds.y, bounds.w, bounds.h,
+                   freqKeyFocus == key + 5 ? PrimaryColor : GreyoutColor);
+      tft.pushImage(x, y, 70, 30, CurrentTheme == 7 ? bwselector_wo : bwselector);
+      if (key == 14) {
+        // Draw <- on one centerline; font glyph baselines differ between languages.
+        tft.fillRect(x + 25, y + 14, 23, 2, ActiveColor);
+        for (int d = 0; d < 8; ++d) {
+          tft.fillRect(x + 25 + d, y + 14 - d, 2, 2, ActiveColor);
+          tft.fillRect(x + 25 + d, y + 14 + d, 2, 2, ActiveColor);
+        }
+      } else {
+        tftPrint(ACENTER, freqInputKeys[key], x + 35, y + 5, ActiveColor, ActiveColorSmooth, 16);
+      }
     }
-    tftPrint(ACENTER, label, 160, y + 8, ActiveColor, ActiveColorSmooth, 16);
   }
 }
 
 void BuildMenu() {
+  items[SCREENSETTINGS] = hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 4 : 3;
+  items[INPUTSETTINGS] = hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 4 : 3;
   advancedRDS = false;
   BWtune = false;
 
@@ -2958,8 +3082,15 @@ void BuildMenu() {
   if (!submenu) {
     tftPrint(ACENTER, textUI(32), 160, 6, PrimaryColor, PrimaryColorSmooth, 16);
   } else {
-    tftPrint(ALEFT, textUI(184), (hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 20 : 8), 6, PrimaryColor, PrimaryColorSmooth, 16);
-    tftPrint(ARIGHT, textUI(189 + menupage - 1), 312, 6, ActiveColor, ActiveColorSmooth, 16);
+    const int left = hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 20 : 8;
+    const char* title = textUI(SetupMenuTitle(menupage));
+    const char* back = textUI(184);
+    // FullLineSprite uses the same 16 px font as the header.
+    if (IsSetupPage(menupage) && FullLineSprite.textWidth(back) + FullLineSprite.textWidth(title) > 312 - left - 8) {
+      back = textUI(333);
+    }
+    tftPrint(ALEFT, back, left, 6, PrimaryColor, PrimaryColorSmooth, 16);
+    tftPrint(ARIGHT, title, 312, 6, ActiveColor, ActiveColorSmooth, 16);
   }
 
   if (hardwaremodel == PORTABLE_TOUCH_ILI9341) {
@@ -3255,6 +3386,7 @@ void BuildDisplay() {
 }
 
 void MenuUpDown(bool dir) {
+  if (menuopen && IsSetupPage(menupage)) { AdjustSetupMenu(dir); return; }
   if (!menuopen) {
     if (hardwaremodel == PORTABLE_TOUCH_ILI9341) ShowOneButton(menuoption, menuitem, false); else ShowOneLine(menuoption, menuitem, false);
 
@@ -3311,6 +3443,13 @@ void MenuUpDown(bool dir) {
     OneBigLineSprite.setTextDatum(TC_DATUM);
 
     switch (menupage) {
+      case INPUTSETTINGS:
+        if (menuitem == 0) touchrotating = !touchrotating;
+        else freqKeypadEnabled = !freqKeypadEnabled;
+        OneBigLineSprite.drawString(textUI((menuitem == 0 ? touchrotating : freqKeypadEnabled) ? 31 : 30), 135, 0);
+        OneBigLineSprite.pushSprite(24, 118);
+        break;
+
       case MAINSETTINGS:
         switch (menuoption) {
           case ITEM1:
@@ -4606,6 +4745,25 @@ void showMenuOpenTouchButtons() {
 
 void DoMenu() {
   if (!menuopen) {
+    int child = -1;
+    if (menupage == MAINSETTINGS && menuitem == 0) child = DEVICESETTINGS;
+    if (menupage == MAINSETTINGS && menuitem == 1) child = INPUTSETTINGS;
+    if (menupage == DISPLAYSETTINGS && menuitem == 9) child = SCREENSETTINGS;
+    if (child >= 0) {
+      menupage = child;
+      menuitem = 0;
+      menuoption = ITEM1;
+      submenu = true;
+      BuildMenu();
+      return;
+    }
+  }
+  if (IsSetupPage(menupage)) {
+    if (menuopen) AcceptSetupMenu(); else OpenSetupMenu();
+    return;
+  }
+
+  if (!menuopen) {
     if (menupage != INDEX) {
       menuopen = true;
       switch (CurrentTheme) {
@@ -4619,7 +4777,7 @@ void DoMenu() {
           case 7: tft.pushImage (0, 0, 320, 240, configurationbackground_wo); break;
           default: tft.pushImage (0, 0, 320, 240, configurationbackground); break;
         }
-        tftPrint(ACENTER, textUI(189 + menupage - 1), 160, 6, ActiveColor, ActiveColorSmooth, 16);
+        tftPrint(ACENTER, (textUI(SetupMenuTitle(menupage))), 160, 6, ActiveColor, ActiveColorSmooth, 16);
       }
     }
 
@@ -4632,6 +4790,12 @@ void DoMenu() {
     OneBigLineSprite.setTextDatum(TC_DATUM);
 
     switch (menupage) {
+      case INPUTSETTINGS:
+        Infoboxprint(textUI(menuitem == 0 ? 68 : 331));
+        OneBigLineSprite.drawString(textUI((menuitem == 0 ? touchrotating : freqKeypadEnabled) ? 31 : 30), 135, 0);
+        OneBigLineSprite.pushSprite(24, 118);
+        break;
+
       case INDEX:
         switch (menuoption) {
           case ITEM1:
@@ -5846,4 +6010,207 @@ String shortLine(String text) {
     text = tempText + "..."; // Add "..." to the truncated text
   }
   return text;
+}
+
+// Startup-function settings shared by touch and physical controls.
+// Edits are staged: OK applies, MODE cancels. Actions always start at No.
+static byte setupValue;
+static bool meterCalibrationActive;
+
+bool IsSetupPage(byte page) {
+  return page == INPUTSETTINGS || page == SCREENSETTINGS || page == DEVICESETTINGS;
+}
+int SetupMenuTitle(byte page) {
+  if (page == INPUTSETTINGS) return 332;
+  if (page == SCREENSETTINGS) return 337;
+  if (page == DEVICESETTINGS) return 335;
+  return 189 + page - 1;
+}
+static byte SetupInputItem(byte item) {
+  // The wake-on-tune setting applies to the physical encoder on every model.
+  // Only the on-screen numeric keypad option is omitted without touch hardware.
+  return hardwaremodel == PORTABLE_TOUCH_ILI9341 || item == 0 ? item : item + 1;
+}
+int SetupMenuLabel(byte page, byte item) {
+  if (page == MAINSETTINGS && item == 0) return 334;
+  if (page == DISPLAYSETTINGS && item == 9) return 336;
+  const int input[] = {107, 331, 338, 339};
+  const int screen[] = {85, 340, 341, 283};
+  const int device[] = {108, 342, 343};
+  if (page == INPUTSETTINGS && item < (hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 4 : 3)) return input[SetupInputItem(item)];
+  if (page == SCREENSETTINGS && item < (hardwaremodel == PORTABLE_TOUCH_ILI9341 ? 4 : 3)) return screen[item];
+  if (page == DEVICESETTINGS && item < 3) return device[item];
+  return 0;
+}
+static byte SetupCurrentValue(byte page, byte item) {
+  if (page == INPUTSETTINGS) {
+    switch (SetupInputItem(item)) {
+      case 0: return touchrotating;
+      case 1: return freqKeypadEnabled;
+      case 2: return rotarymode;
+      case 3: return optenc;
+    }
+  }
+  if (page == SCREENSETTINGS) {
+    switch (item) {
+      case 0: return freqfont;
+      case 1: return displayflip;
+      case 2: return invertdisplay;
+    }
+  }
+  if (page == DEVICESETTINGS && item == 0) return hardwaremodel;
+  return 0;
+}
+static String SetupValueText(byte page, byte item, byte value) {
+  if (page == SCREENSETTINGS && item == 0) return FreqFont[value];
+  if (page == DEVICESETTINGS && item == 0) return textUI(109 + value);
+  if ((page == SCREENSETTINGS && item == 3) || (page == DEVICESETTINGS && item == 2)) return textUI(value ? 345 : 344);
+  if (page == DEVICESETTINGS && item == 1) return textUI(349);
+  return textUI(value ? 31 : 30);
+}
+String SetupMenuValue(byte page, byte item) {
+  if (!IsSetupPage(page) || (page == SCREENSETTINGS && item == 3) || (page == DEVICESETTINGS && item > 0)) return "";
+  return SetupValueText(page, item, SetupCurrentValue(page, item));
+}
+static void DrawSetupValue() {
+  switch (CurrentTheme) {
+    case 7: OneBigLineSprite.pushImage(-11, -88, 292, 170, popupbackground_wo); break;
+    default: OneBigLineSprite.pushImage(-11, -88, 292, 170, popupbackground); break;
+  }
+  OneBigLineSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
+  OneBigLineSprite.setTextDatum(TC_DATUM);
+  OneBigLineSprite.drawString(SetupValueText(menupage, menuitem, setupValue), 135, 0);
+  OneBigLineSprite.pushSprite(24, 118);
+}
+String FitSetupText(String text, int width) {
+  if (FullLineSprite.textWidth(text) <= width) return text;
+  while (text.length() && FullLineSprite.textWidth(text + "...") > width) {
+    int last = text.length() - 1;
+    while (last > 0 && (static_cast<unsigned char>(text[last]) & 0xC0) == 0x80) --last;
+    text.remove(last);
+  }
+  return text + "...";
+}
+void DrawSetupTitle(String text, int y, int color, int smoothColor) {
+  text.replace("\n", " ");
+  // OneBigLineSprite has the same 28 px font as the existing popup titles.
+  int split = -1;
+  if (OneBigLineSprite.textWidth(text) > 270) {
+    split = text.length();
+    while (split > 0 && OneBigLineSprite.textWidth(text.substring(0, split)) > 270) {
+      --split;
+      while (split > 0 && (static_cast<unsigned char>(text[split]) & 0xC0) == 0x80) --split;
+    }
+    int space = text.lastIndexOf(' ', split);
+    if (space > 0) split = space;
+  }
+  if (split >= 0) {
+    tftPrint(ACENTER, text.substring(0, split), 155, y, color, smoothColor, 28);
+    int next = split;
+    if (text[next] == ' ') ++next;
+    tftPrint(ACENTER, text.substring(next), 155, y + 30, color, smoothColor, 28);
+  } else {
+    tftPrint(ACENTER, text, 155, y + 30, color, smoothColor, 28);
+  }
+}
+void SetupPrompt(int label) {
+  DrawSetupTitle(textUI(label), 48, ActiveColor, ActiveColorSmooth);
+}
+void DrawTouchCalibrationScreen() {
+  tft.fillScreen(BackgroundColor);
+  // Keep both texts clear of the four 31 x 31 calibration targets.
+  DrawSetupTitle(textUI(283), 45, PrimaryColor, PrimaryColorSmooth);
+  DrawSetupTitle(textUI(282), 120, ActiveColor, ActiveColorSmooth);
+}
+void OpenSetupMenu() {
+  if (!SetupMenuLabel(menupage, menuitem)) return;
+  setupValue = SetupCurrentValue(menupage, menuitem);
+  menuopen = true;
+  tft.pushImage(13, 30, 292, 170, CurrentTheme == 7 ? popupbackground_wo : popupbackground);
+  showMenuOpenTouchButtons();
+  int label = SetupMenuLabel(menupage, menuitem);
+  if (menupage == SCREENSETTINGS && menuitem == 3) label = 346;
+  if (menupage == DEVICESETTINGS && menuitem == 2) label = 347;
+  SetupPrompt(label);
+  if (menupage == DEVICESETTINGS && menuitem == 1) {
+    meterCalibrationActive = true;
+    analogWrite(SMETERPIN, 511);
+  }
+  DrawSetupValue();
+}
+void AdjustSetupMenu(bool dir) {
+  if (meterCalibrationActive) return;
+  int count = 2;
+  if (menupage == SCREENSETTINGS && menuitem == 0) count = sizeof(FreqFont) / sizeof(FreqFont[0]);
+  if (menupage == DEVICESETTINGS && menuitem == 0) count = RADIO_HARDWARE_CNT;
+  setupValue = (setupValue + (dir ? 1 : count - 1)) % count;
+  DrawSetupValue();
+}
+void CancelSetupMenu() {
+  if (meterCalibrationActive) analogWrite(SMETERPIN, 0);
+  meterCalibrationActive = false;
+  setupValue = 0;
+}
+void AcceptSetupMenu() {
+  if (!SetupMenuLabel(menupage, menuitem)) {
+    CancelSetupMenu();
+    menuopen = false;
+    BuildMenu();
+    return;
+  }
+  if (menupage == INPUTSETTINGS) {
+    switch (SetupInputItem(menuitem)) {
+      case 0: touchrotating = setupValue; break;
+      case 1: freqKeypadEnabled = setupValue; break;
+      case 2:
+        rotarymode = setupValue;
+        EEPROM.writeByte(EE_BYTE_ROTARYMODE, rotarymode);
+        EEPROM.commit();
+        break;
+      case 3:
+        optenc = setupValue;
+        EEPROM.writeByte(EE_BYTE_OPTENC, optenc);
+        EEPROM.commit();
+        break;
+    }
+  } else if (menupage == SCREENSETTINGS) {
+    switch (menuitem) {
+      case 0: freqfont = setupValue; break;
+      case 1: ApplyScreenFlip(setupValue); break;
+      case 2:
+        invertdisplay = setupValue;
+        tft.invertDisplay(!invertdisplay);
+        EEPROM.writeByte(EE_BYTE_INVERTDISPLAY, invertdisplay);
+        EEPROM.commit();
+        break;
+      case 3:
+        if (setupValue && hardwaremodel == PORTABLE_TOUCH_ILI9341) RunTouchCalibration();
+        break;
+    }
+  } else if (menupage == DEVICESETTINGS) {
+    if (menuitem == 0) hardwaremodel = setupValue;
+    if (menuitem == 2 && setupValue) {
+      SetupPrompt(348);
+      WaitSetupControlsReleased();
+      DefaultSettings(); // Same complete reset (including presets) as BW + encoder at boot.
+      ESP.restart();
+      return;
+    }
+  }
+  CancelSetupMenu();
+  menuopen = false;
+  BuildMenu();
+}
+void BackSetupMenu() {
+  CancelSetupMenu();
+  if (menuopen) {
+    menuopen = false;
+  } else {
+    byte parent = menupage == SCREENSETTINGS ? DISPLAYSETTINGS : MAINSETTINGS;
+    menuitem = menupage == SCREENSETTINGS ? 9 : menupage == INPUTSETTINGS ? 1 : 0;
+    menuoption = ITEM1 + menuitem * ITEM_GAP;
+    menupage = parent;
+    submenu = true;
+  }
+  BuildMenu();
 }

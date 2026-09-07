@@ -232,9 +232,9 @@
 #define EE_CHECKBYTE_VALUE            20     // 0 ~ 255,add new entry, change for new value
 #define EE_PRESETS_FREQUENCY          0     // Default value when memory channel should be skipped!
 #ifdef HAS_AIR_BAND
-#define EE_TOTAL_CNT                  2305  // Total occupied eeprom bytes
+#define EE_TOTAL_CNT                  2306  // Total occupied eeprom bytes
 #else
-#define EE_TOTAL_CNT                  2300  // Total occupied eeprom bytes
+#define EE_TOTAL_CNT                  2301  // Total occupied eeprom bytes
 #endif
 
 #define EE_PRESETS_BAND_START         0     // 99 * 1 byte
@@ -371,11 +371,12 @@
 #define EE_UINT16_WIFI_GATEWAY        2292
 #define EE_UINT16_WIFI_SUBNET         2296
 #endif
+#define EE_BYTE_FREQ_KEYPAD          (EE_TOTAL_CNT - 1)
 // End of EEPROM index defines
 
 static const char* const unitString[] = {"dBμV", "dBf", "dBm"};
 static const char* const FreqFont[] = {"Classic", "Roubenstil", "Motoya", "Aura2", "Modern"};
-static const char* const Theme[] = {"Essence", "Cyan", "Crimson", "Monochrome", "Volcano", "Dendro", "Sakura", "Whiteout", "Tangerine", "Ocean", "Indigo", "Queer", "GoldBrite", "Bubblegum"};
+static const char* const Theme[] = {"Essence", "Cyan", "Crimson", "Monochrome", "Volcano", "Dendro", "Sakura", "Whiteout", "Tangerine", "Ocean", "Indigo", "Queer", "GoldBrite", "Bubblegum", "Aurora", "Ember", "Glacier"};
 static const char* const Skin[] = {"Essential"};
 static const char* BWButtonLabelsFM[] = {"56 kHz", "64 kHz", "72 kHz", "84 kHz", "97 kHz", "114 kHz", "133 kHz", "151 kHz", "168 kHz", "184 kHz", "200 kHz", "217 kHz", "236 kHz", "254 kHz", "287 kHz", "311 kHz", "Auto", "iMS", "EQ"};
 static const char* BWButtonLabelsAM[] = {"3 kHz", "4 kHz", "6 kHz", "8 kHz"};
@@ -394,7 +395,7 @@ enum LONGBANDBUTTONPRESS {
   STANDBY = 0, SCREENOFF
 };
 
-enum menupage {INDEX, MAINSETTINGS, AUDIOSETTINGS, DISPLAYSETTINGS, RDSSETTINGS, FMSETTINGS, AMSETTINGS, CONNECTIVITY, DXMODE, AUTOMEM
+enum menupage {INDEX, MAINSETTINGS, AUDIOSETTINGS, DISPLAYSETTINGS, RDSSETTINGS, FMSETTINGS, AMSETTINGS, CONNECTIVITY, DXMODE, AUTOMEM, INPUTSETTINGS, SCREENSETTINGS, DEVICESETTINGS
               };
 
 enum AUTOMEMPIMODES {

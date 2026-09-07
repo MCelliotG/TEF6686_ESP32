@@ -2,6 +2,8 @@
 #define GUI_H
 
 #include <Arduino.h>
+#include "frequency_input.h"
+#include "setup_menu.h"
 #include <TFT_eSPI.h>
 #include "TEF668X.h"
 #include "WiFiConnect.h"
@@ -21,10 +23,6 @@ extern bool autosquelch;
 extern bool BWreset;
 extern bool BWtune;
 extern bool freqkeypadtune;
-extern bool freqBandPicker;
-extern byte freqPickerCount;
-extern byte freqPickerBands[5];
-extern int freqPickerFreqs[5];
 extern bool change;
 extern bool clockampm;
 extern bool compressedold;
@@ -101,7 +99,7 @@ extern byte amgain;
 extern byte hardwaremodel;
 extern byte HighCutLevel;
 extern byte HighCutOffset;
-extern byte items[10];
+extern byte items[];
 extern byte language;
 extern byte licold;
 extern byte longbandpress;
@@ -246,8 +244,6 @@ void showMenuOpenTouchButtons();
 void showBWSelector();
 void BuildFreqKeypad();
 void showFreqKeypad();
-void BuildFreqBandPicker();
-void showFreqBandPicker();
 
 extern void ShowFreq(int mode);
 extern void ShowBandSelectionFM(bool notglanceview, bool normaldisplay);

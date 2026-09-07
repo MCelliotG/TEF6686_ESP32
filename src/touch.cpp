@@ -97,7 +97,14 @@ void doTouchEvent(uint16_t x, uint16_t y) {
       }
     }
 
-    if (!menu && !BWtune && !freqkeypadtune && !freqBandPicker) {         // All pages except menu
+    if (!menu && !BWtune && !freqkeypadtune) {
+      if (x >= 276 && x < 319 && y >= 1 && y < 30 &&
+          batterydetect && !wifi && !screenmute) {
+        touchrepeat = false;
+        CycleBatteryDisplay();
+        return;
+      }
+         // All pages except menu
       if (x > 30 && x < 65 && y > 0 && y < 30 && band < BAND_GAP) {       // ---------------------
         doStereoToggle();                                                 // Stereo toggle
         return;
@@ -181,68 +188,12 @@ void doTouchEvent(uint16_t x, uint16_t y) {
       return;
     }
 
-    if (freqBandPicker) {                                                 // Frequency band choice popup
-      int totalHeight = freqPickerCount * 40 - 8;
-      int startY = 30 + (210 - totalHeight) / 2;
-      if (startY < 35) startY = 35;
-
-      for (byte i = 0; i < freqPickerCount; i++) {
-        int by = startY + i * 40;
-        if (y > by && y < by + 32 && x > 10 && x < 310) {
-          ApplyBandMatch(freqPickerBands[i], freqPickerFreqs[i]);
-          freqBandPicker = false;
-          freqkeypadtune = false;
-          BuildDisplay();
-          SelectBand();
-          break;
-        }
-      }
-      return;
-    }
-
-    if (freqkeypadtune) {                                                 // Frequency entry keypad
-      int digit = -1;
-      bool doCancel = false;
-      bool doClear = false;
-      bool doBackspace = false;
-      bool doOK = false;
-
-      if (y > 101 && y < 131) {
-        if (x > 7 && x < 77) digit = 1;
-        else if (x > 87 && x < 157) digit = 2;
-        else if (x > 167 && x < 237) digit = 3;
-        else if (x > 247 && x < 317) doCancel = true;
-      } else if (y > 135 && y < 165) {
-        if (x > 7 && x < 77) digit = 4;
-        else if (x > 87 && x < 157) digit = 5;
-        else if (x > 167 && x < 237) digit = 6;
-      } else if (y > 169 && y < 199) {
-        if (x > 7 && x < 77) digit = 7;
-        else if (x > 87 && x < 157) digit = 8;
-        else if (x > 167 && x < 237) digit = 9;
-      } else if (y > 203 && y < 233) {
-        if (x > 7 && x < 77) doClear = true;
-        else if (x > 87 && x < 157) digit = 0;
-        else if (x > 167 && x < 237) doBackspace = true;
-        else if (x > 247 && x < 317) doOK = true;
-      }
-
-      if (digit != -1) {
-        if (freq_in / 10000 == 0) freq_in = freq_in * 10 + digit;
-        ShowNum(freq_in);
-      } else if (doClear) {
-        freq_in = 0;
-        ShowNum(freq_in);
-      } else if (doBackspace) {
-        freq_in = freq_in / 10;
-        ShowNum(freq_in);
-      } else if (doOK) {
-        FreqKeypadConfirm();
-      } else if (doCancel) {
-        freqkeypadtune = false;
-        freq_in = 0;
-        BuildDisplay();
-        SelectBand();
+    if (freqkeypadtune) {
+      touchrepeat = false;
+      int focus = FreqInputHitTest(x, y);
+      if (focus >= 0) {
+        freqKeyFocus = focus;
+        FreqInputAction(freqKeyFocus);
       }
       return;
     }
@@ -253,11 +204,11 @@ void doTouchEvent(uint16_t x, uint16_t y) {
         BuildAdvancedRDS();                                               // Switch to Advanced RDS View
         return;
       } else if (x > 60 && x < 240 && y > 40 && y < 100) {
-        if (tunemode == TUNE_MEM) {
+        touchrepeat = false;
+        if (tunemode == TUNE_MEM || !freqKeypadEnabled) {
           doBandToggle();
         } else {
-          freqkeypadtune = true;
-          BuildFreqKeypad();
+          OpenFreqInput(0);
         }
         return;
       } else if (x > 0 && x < 30 && y > 25 && y < 90) {
