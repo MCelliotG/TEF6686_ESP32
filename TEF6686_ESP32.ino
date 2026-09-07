@@ -78,10 +78,14 @@ bool BWreset;
 bool bwtouchtune;
 bool BWtune;
 bool freqkeypadtune;
-bool freqBandPicker;
-byte freqPickerCount;
-byte freqPickerBands[5];
-int freqPickerFreqs[5];
+bool freqKeypadEnabled = true;
+byte freqInputBand;
+byte freqKeyFocus;
+byte freqInputButtons;
+byte freqInputRawButtons;
+unsigned long freqInputButtonsChanged;
+byte freqInputReleaseButtons;
+const byte freqInputBands[5] = {BAND_FM, BAND_OIRT, BAND_LW, BAND_MW, BAND_SW};
 bool change;
 bool clockampm;
 bool compressedold;
@@ -207,7 +211,7 @@ byte amgain;
 byte freqoldcount;
 byte HighCutLevel;
 byte HighCutOffset;
-byte items[10] = {10, static_cast<byte>(dynamicspi ? 10 : 9), 7, 10, 10, 10, 9, 10, 10, 9};
+byte items[13] = {10, static_cast<byte>(dynamicspi ? 10 : 9), 7, 10, 10, 10, 9, 10, 10, 9, 4, 4, 3};
 byte iMSEQ;
 byte iMSset;
 byte language;
@@ -511,6 +515,8 @@ void setup() {
   EEPROM.begin(EE_TOTAL_CNT);
   if (EEPROM.readByte(EE_BYTE_CHECKBYTE) != EE_CHECKBYTE_VALUE) DefaultSettings();
 
+  // An erased/new byte defaults to enabled; preserve all existing settings.
+  freqKeypadEnabled = EEPROM.readByte(EE_BYTE_FREQ_KEYPAD) != 0;
   frequency = EEPROM.readUInt(EE_UINT16_FREQUENCY_FM);
   frequency_OIRT = EEPROM.readUInt(EE_UINT16_FREQUENCY_OIRT);
   VolSet = EEPROM.readByte(EE_BYTE_VOLSET);
@@ -784,23 +790,7 @@ void setup() {
   }
 
   if (digitalRead(BWBUTTON) == HIGH && digitalRead(ROTARY_BUTTON) == HIGH && digitalRead(MODEBUTTON) == LOW && digitalRead(BANDBUTTON) == HIGH) {
-    if (displayflip == 0) {
-      displayflip = 1;
-#ifdef ARS
-      tft.setRotation(2);
-#else
-      tft.setRotation(1);
-#endif
-    } else {
-      displayflip = 0;
-#ifdef ARS
-      tft.setRotation(0);
-#else
-      tft.setRotation(3);
-#endif
-    }
-    EEPROM.writeByte(EE_BYTE_DISPLAYFLIP, displayflip);
-    EEPROM.commit();
+    ApplyScreenFlip(!displayflip);
     analogWrite(CONTRASTPIN, map(ContrastSet, 0, 100, 15, 255));
     Infoboxprint(textUI(3));
     tftPrint(ACENTER, textUI(2), 155, 130, ActiveColor, ActiveColorSmooth, 28);
@@ -842,15 +832,7 @@ void setup() {
 
   if (digitalRead(BWBUTTON) == LOW && digitalRead(ROTARY_BUTTON) == HIGH && digitalRead(MODEBUTTON) == LOW && digitalRead(BANDBUTTON) == HIGH) {
     analogWrite(CONTRASTPIN, map(ContrastSet, 0, 100, 15, 255));
-    Infoboxprint(textUI(282));
-    tftPrint(ACENTER, textUI(283), 155, 100, ActiveColor, ActiveColorSmooth, 28);
-    tft.calibrateTouch(TouchCalData, PrimaryColor, BackgroundColor, 30);
-    EEPROM.writeUInt(EE_UINT16_CALTOUCH1, TouchCalData[0]);
-    EEPROM.writeUInt(EE_UINT16_CALTOUCH2, TouchCalData[1]);
-    EEPROM.writeUInt(EE_UINT16_CALTOUCH3, TouchCalData[2]);
-    EEPROM.writeUInt(EE_UINT16_CALTOUCH4, TouchCalData[3]);
-    EEPROM.writeUInt(EE_UINT16_CALTOUCH5, TouchCalData[4]);
-    EEPROM.commit();
+    RunTouchCalibration();
   }
 
   if (digitalRead(BWBUTTON) == LOW && digitalRead(ROTARY_BUTTON) == HIGH && digitalRead(MODEBUTTON) == HIGH && digitalRead(BANDBUTTON) == LOW) {
@@ -1009,9 +991,9 @@ void loop() {
 
   if (hardwaremodel == PORTABLE_TOUCH_ILI9341 && touch_detect) {
     if (tft.getTouchRawZ() > 100) {  // Check if the touch is active
-      uint16_t x, y;
-      tft.getTouch(&x, &y);
-      if (x > 0 || y > 0) {
+      uint16_t x = 0, y = 0;
+      // Failed/unstable samples must never become screen coordinates.
+      if (tft.getTouch(&x, &y) && x < 320 && y < 240) {
         if (!firstTouchHandled) {
           // Handle the initial touch event immediately
           doTouchEvent(x, y);
@@ -1032,17 +1014,28 @@ void loop() {
     }
   }
 
-  Communication();
-
   if (tot != 0) {
     unsigned long totprobe = tot * 60000;
     if (millis() >= tottimer + totprobe) deepSleep();
   }
 
+  // Do not reuse an editor confirmation/cancel press in normal radio mode.
+  if (freqInputReleaseButtons) {
+    freqInputReleaseButtons &= ReadFreqInputButtons();
+    return;
+  }
+  if (freqkeypadtune) {
+    PollFreqInput();
+    return;
+  }
+
+  Communication();
+
+
   CheckBatteryWarning();
 
   if (!batteryWarningActive) {
-  if (!freqkeypadtune && !freqBandPicker && freq_in != 0 && millis() >= keypadtimer + 3000) {
+  if (!freqkeypadtune && freq_in != 0 && millis() >= keypadtimer + 3000) {
     freq_in = 0;
     ShowFreq(0);
   }
@@ -1139,7 +1132,7 @@ void loop() {
     }
   }
 
-  if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu && !afscreen && !rdsstatscreen && !scandxmode) {
+  if (!BWtune && !freqkeypadtune && !menu && !afscreen && !rdsstatscreen && !scandxmode) {
     if (af != 0 && dropout && millis() >= aftimer + 1000) {
       aftimer = millis();
       if (radio.af_counter == 0) {
@@ -1257,7 +1250,7 @@ void loop() {
 
   if (seek) Seek(direction);
 
-  if ((SStatus / 10 > LowLevelSet) && !LowLevelInit && !BWtune && !freqkeypadtune && !freqBandPicker && !menu && band < BAND_GAP) {
+  if ((SStatus / 10 > LowLevelSet) && !LowLevelInit && !BWtune && !freqkeypadtune && !menu && band < BAND_GAP) {
     if (!screenmute && !advancedRDS && !rdsstatscreen && !afscreen) {
       if (showmodulation) {
         tftPrint(ALEFT, "10", 24, 144, ActiveColor, ActiveColorSmooth, 16);
@@ -1289,7 +1282,7 @@ void loop() {
   }
 
   if ((SStatus / 10 <= LowLevelSet) && band < BAND_GAP) {
-    if (LowLevelInit && !BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+    if (LowLevelInit && !BWtune && !freqkeypadtune && !menu) {
       if (!screenmute && !rdsstatscreen && !afscreen && !advancedRDS) {
         for (byte segments = 0; segments < 87; segments++) {
           if (segments > 54) {
@@ -1323,7 +1316,7 @@ void loop() {
       LowLevelInit = false;
     }
 
-    if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu && (screenmute || radio.rds.correctPI != 0)) readRds();
+    if (!BWtune && !freqkeypadtune && !menu && (screenmute || radio.rds.correctPI != 0)) readRds();
     if (millis() >= lowsignaltimer + 300) {
       lowsignaltimer = millis();
       if (af || (!screenmute || (screenmute && (XDRGTKTCP || XDRGTKUSB)))) {
@@ -1333,7 +1326,7 @@ void loop() {
           radio.getStatusAM(SStatus, USN, WAM, OStatus, BW, MStatus, CN);
         }
       }
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         doSquelch();
         GetData();
       }
@@ -1347,7 +1340,7 @@ void loop() {
         radio.getStatusAM(SStatus, USN, WAM, OStatus, BW, MStatus, CN);
       }
     }
-    if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+    if (!BWtune && !freqkeypadtune && !menu) {
       doSquelch();
       if (millis() >= tuningtimer + 200) readRds();
       GetData();
@@ -1366,15 +1359,15 @@ void loop() {
         rotary = 0;
         WakeToSleep(REVERSE);
       } else {
-        if (BWtune) doBWtuneUp(); else if (!freqkeypadtune && !freqBandPicker) KeyUp();
+        if (BWtune) doBWtuneUp(); else if (!freqkeypadtune) KeyUp();
       }
     } else {
-      if (BWtune) doBWtuneUp(); else if (!freqkeypadtune && !freqBandPicker) KeyUp();
-      if (rotaryaccelerate && rotarycounter > 2 && !BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (BWtune) doBWtuneUp(); else if (!freqkeypadtune) KeyUp();
+      if (rotaryaccelerate && rotarycounter > 2 && !BWtune && !freqkeypadtune && !menu) {
         for (int i = 0; i < rotarycounteraccelerator; i++) KeyUp();
         rotarycounter = 0;
       }
-      if (screensaverset > 0 && !BWtune && !freqkeypadtune && !freqBandPicker && !menu && !screensavertriggered) screensavertimer = millis();
+      if (screensaverset > 0 && !BWtune && !freqkeypadtune && !menu && !screensavertriggered) screensavertimer = millis();
     }
   }
 
@@ -1388,15 +1381,15 @@ void loop() {
         rotary = 0;
         WakeToSleep(REVERSE);
       } else {
-        if (BWtune) doBWtuneDown(); else if (!freqkeypadtune && !freqBandPicker) KeyDown();
+        if (BWtune) doBWtuneDown(); else if (!freqkeypadtune) KeyDown();
       }
     } else {
-      if (BWtune) doBWtuneDown(); else if (!freqkeypadtune && !freqBandPicker) KeyDown();
-      if (rotaryaccelerate && rotarycounter > 2 && !BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (BWtune) doBWtuneDown(); else if (!freqkeypadtune) KeyDown();
+      if (rotaryaccelerate && rotarycounter > 2 && !BWtune && !freqkeypadtune && !menu) {
         for (int i = 0; i < rotarycounteraccelerator; i++) KeyDown();
         rotarycounter = 0;
       }
-      if (screensaverset > 0 && !BWtune && !freqkeypadtune && !freqBandPicker && !menu && !screensavertriggered) screensavertimer = millis();
+      if (screensaverset > 0 && !BWtune && !freqkeypadtune && !menu && !screensavertriggered) screensavertimer = millis();
     }
   }
 
@@ -1410,7 +1403,7 @@ void loop() {
       WakeToSleep(REVERSE);
       while (digitalRead(BANDBUTTON) == LOW);
     } else {
-      if (!freqkeypadtune && !freqBandPicker) BANDBUTTONPress();
+      if (!freqkeypadtune) BANDBUTTONPress();
     }
   }
 
@@ -1424,7 +1417,7 @@ void loop() {
       WakeToSleep(REVERSE);
       while (digitalRead(ROTARY_BUTTON) == LOW);
     } else {
-      if (!afscreen && !rdsstatscreen && !freqkeypadtune && !freqBandPicker) ButtonPress();
+      if (!afscreen && !rdsstatscreen && !freqkeypadtune) ButtonPress();
     }
   }
 
@@ -1438,11 +1431,11 @@ void loop() {
       WakeToSleep(REVERSE);
       while (digitalRead(MODEBUTTON) == LOW);
     } else {
-      if (!screenmute && !freqkeypadtune && !freqBandPicker) ModeButtonPress();
+      if (!screenmute && !freqkeypadtune) ModeButtonPress();
     }
   }
 
-  if (digitalRead(BWBUTTON) == LOW && !BWtune && !freqkeypadtune && !freqBandPicker) {
+  if (digitalRead(BWBUTTON) == LOW && !BWtune && !freqkeypadtune) {
     tottimer = millis();
     if (batteryWarningActive) {
       batteryWarningActive = false;
@@ -1462,26 +1455,22 @@ void loop() {
     num = GetNum();
     if (num != -1)
     {
-      if (!screenmute && !BWtune && !freqkeypadtune && !freqBandPicker && !menu && !advancedRDS && !rdsstatscreen && !afscreen)
+      if (!screenmute && !BWtune && !freqkeypadtune && !menu && !advancedRDS && !rdsstatscreen && !afscreen)
       {
         NumpadProcess(num);
-      } else if (freqkeypadtune && num >= 0 && num <= 9) {
-        if (freq_in / 10000 == 0) freq_in = freq_in * 10 + num;
-        ShowNum(freq_in);
-      } else if (freqkeypadtune && num == 13) {
-        FreqKeypadConfirm();
+
       }
     }
   }
 
-  if (screensaverset > 0 && !screensavertriggered && !BWtune && !freqkeypadtune && !freqBandPicker && !menu && millis() >= screensavertimer + 1000 * screensaverOptions[screensaverset]) WakeToSleep(true);
+  if (screensaverset > 0 && !screensavertriggered && !BWtune && !freqkeypadtune && !menu && millis() >= screensavertimer + 1000 * screensaverOptions[screensaverset]) WakeToSleep(true);
 }
 
 void GetData() {
   if (!afscreen && !rdsstatscreen) ShowSignalLevel();
-  if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu && !rdsstatscreen) showPS();
+  if (!BWtune && !freqkeypadtune && !menu && !rdsstatscreen) showPS();
 
-  if (band < BAND_GAP && !BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+  if (band < BAND_GAP && !BWtune && !freqkeypadtune && !menu) {
     if (advancedRDS && !afscreen && !rdsstatscreen && !screenmute) ShowAdvancedRDS();
     if (!advancedRDS && !afscreen && rdsstatscreen && !screenmute) ShowRDSStatistics();
     if (afscreen && !screenmute) ShowAFEON();
@@ -1931,7 +1920,7 @@ void BANDBUTTONPress() {
       if (!usesquelch) radio.setUnMute();
       unsigned long counterold = millis();
       unsigned long counter = millis();
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         while (digitalRead(BANDBUTTON) == LOW && counter - counterold <= 1000) counter = millis();
 
         if (counter - counterold < 1000) {
@@ -2510,7 +2499,7 @@ void BWButtonPress() {
       }
     } else {
       if (!usesquelch) radio.setUnMute();
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         if (!screenmute) tft.drawBitmap(249, 4, Speaker, 28, 24, GreyoutColor);
         unsigned long counterold = millis();
         unsigned long counter = millis();
@@ -2559,6 +2548,12 @@ void doStereoToggle() {
 }
 
 void ModeButtonPress() {
+  if (menu && IsSetupPage(menupage)) {
+    BackSetupMenu();
+    while (digitalRead(MODEBUTTON) == LOW) delay(50);
+    delay(100);
+    return;
+  }
   if (seek) radio.setUnMute();
   seek = false;
   if (scandxmode) {
@@ -2579,7 +2574,7 @@ void ModeButtonPress() {
       BuildAFScreen();
       freq_in = 0;
     } else {
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         if (!screenmute) {
           tft.drawBitmap(249, 4, Speaker, 28, 24, GreyoutColor);
         }
@@ -2591,7 +2586,7 @@ void ModeButtonPress() {
         if (counter - counterold <= 1000) {
           doTuneMode();
         } else {
-          if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+          if (!BWtune && !freqkeypadtune && !menu) {
             menuoption = ITEM1;
             menupage = INDEX;
             menuitem = 0;
@@ -2639,10 +2634,11 @@ void ModeButtonPress() {
               }
               menuopen = false;
             }
-            submenu = false;
-            menuoption = ITEM1;
-            menupage = INDEX;
-            menuitem = 0;
+            bool inputPage = menupage == INPUTSETTINGS;
+            submenu = inputPage;
+            menuoption = inputPage ? ITEM2 : ITEM1;
+            menupage = inputPage ? MAINSETTINGS : INDEX;
+            menuitem = inputPage ? 1 : 0;
             PSSprite.unloadFont();
             if (language == LANGUAGE_CHS) PSSprite.loadFont(FONT16_CHS); else PSSprite.loadFont(FONT16);
             BuildMenu();
@@ -2766,7 +2762,7 @@ void ButtonPress() {
       freq_in = 0;
       SelectBand();
     }
-    if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+    if (!BWtune && !freqkeypadtune && !menu) {
       if (tunemode == TUNE_MEM) {
         if (!memorystore) {
           memorystore = true;
@@ -2885,7 +2881,7 @@ void KeyUp() {
     ShowFreq(0);
   } else {
     if (!afscreen && !rdsstatscreen) {
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         switch (tunemode) {
           case TUNE_MAN:
             TuneUp();
@@ -2957,7 +2953,7 @@ void KeyDown() {
     ShowFreq(0);
   } else {
     if (!afscreen && !rdsstatscreen) {
-      if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu) {
+      if (!BWtune && !freqkeypadtune && !menu) {
         switch (tunemode) {
           case TUNE_MAN:
             TuneDown();
@@ -3589,10 +3585,10 @@ void ShowOffset() {
 }
 
 void ShowBW() {
-  if (!BWtune && !freqkeypadtune && !freqBandPicker && millis() >= bwupdatetimer + TIMER_BW_TIMER) {
+  if (!BWtune && !freqkeypadtune && millis() >= bwupdatetimer + TIMER_BW_TIMER) {
     bwupdatetimer = millis();
   } else {
-    if (!BWtune && !freqkeypadtune && !freqBandPicker) return;
+    if (!BWtune && !freqkeypadtune) return;
   }
 
   if (BW != BWOld || BWreset) {
@@ -3762,7 +3758,7 @@ void doSquelch() {
 
     if (!XDRGTKUSB && !XDRGTKTCP && usesquelch && (!scandxmode || (scandxmode && !scanmute))) {
       if (!screenmute && usesquelch && !advancedRDS && !afscreen && !rdsstatscreen) {
-        if (!BWtune && !freqkeypadtune && !freqBandPicker && !menu && (Squelch > Squelchold + 2 || Squelch < Squelchold - 2)) {
+        if (!BWtune && !freqkeypadtune && !menu && (Squelch > Squelchold + 2 || Squelch < Squelchold - 2)) {
           SquelchSprite.setTextColor(PrimaryColor, PrimaryColorSmooth, false);
           SquelchSprite.fillSprite(BackgroundColor);
           if (Squelch == -100) {
@@ -3865,13 +3861,13 @@ void doSquelch() {
 
 void updateBW() {//todo air
   if (BWset == 0) {
-    if (!BWtune && !freqkeypadtune && !freqBandPicker && !screenmute && !advancedRDS && !afscreen && !rdsstatscreen) {
+    if (!BWtune && !freqkeypadtune && !screenmute && !advancedRDS && !afscreen && !rdsstatscreen) {
       tft.fillRoundRect(248, 36, 69, 18, 2, SecondaryColor);
       tftPrint(ACENTER, "AUTO BW", 282, 38, BackgroundColor, SecondaryColor, 16);
     }
     radio.setFMABandw();
   } else {
-    if (!BWtune && !freqkeypadtune && !freqBandPicker && !screenmute && !advancedRDS && !afscreen && !rdsstatscreen) {
+    if (!BWtune && !freqkeypadtune && !screenmute && !advancedRDS && !afscreen && !rdsstatscreen) {
       tft.fillRoundRect(248, 36, 69, 18, 2, GreyoutColor);
       tftPrint(ACENTER, "AUTO BW", 282, 38, BackgroundColor, GreyoutColor, 16);
     }
@@ -3881,13 +3877,13 @@ void updateBW() {//todo air
 void updateiMS() {
   if (band < BAND_GAP) {
     if (iMSset == 0) {
-      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune && !freqBandPicker) {
+      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune) {
         tft.fillRoundRect(249, 57, 30, 18, 2, SecondaryColor);
         tftPrint(ACENTER, "iMS", 265, 59, BackgroundColor, SecondaryColor, 16);
       }
       radio.setiMS(1);
     } else {
-      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune && !freqBandPicker) {
+      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune) {
         tft.fillRoundRect(249, 57, 30, 18, 2, GreyoutColor);
         tftPrint(ACENTER, "iMS", 265, 59, BackgroundColor, GreyoutColor, 16);
       }
@@ -3899,13 +3895,13 @@ void updateiMS() {
 void updateEQ() {
   if (band < BAND_GAP) {
     if (EQset == 0) {
-      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune && !freqBandPicker) {
+      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune) {
         tft.fillRoundRect(287, 57, 30, 18, 2, SecondaryColor);
         tftPrint(ACENTER, "EQ", 301, 59, BackgroundColor, SecondaryColor, 16);
       }
       radio.setEQ(1);
     } else {
-      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune && !freqBandPicker) {
+      if (!screenmute && !advancedRDS && !afscreen && !rdsstatscreen && !BWtune && !freqkeypadtune) {
         tft.fillRoundRect(287, 57, 30, 18, 2, GreyoutColor);
         tftPrint(ACENTER, "EQ", 301, 59, BackgroundColor, GreyoutColor, 16);
       }
@@ -4180,8 +4176,23 @@ void ShowRSSI() {
   }
 }
 
+void CycleBatteryDisplay() {
+  screensavertimer = millis();
+  tottimer = millis();
+  batteryoptions = (batteryoptions + 1) % RADIO_BATTERY_CNT;
+  EEPROM.writeByte(EE_BYTE_BATTERY_OPTIONS, batteryoptions);
+  EEPROM.commit();
+  // Erase the previous representation and invalidate all cached values.
+  tft.fillRect(277, 3, 41, 25, BackgroundColor);
+  batteryold = 255;
+  batteryVold = -100;
+  vPerold = -100;
+  batupdatetimer = millis() - TIMER_BAT_TIMER;
+  ShowBattery();
+}
+
 void ShowBattery() {
-  if (millis() >= batupdatetimer + TIMER_BAT_TIMER) {
+  if (millis() - batupdatetimer >= TIMER_BAT_TIMER) {
     batupdatetimer = millis();
   } else {
     return;
@@ -4226,7 +4237,7 @@ void ShowBattery() {
 
 void CheckBatteryWarning() {
   if (!batterydetect || wifi || screenmute || batteryWarningActive) return;
-  if (menu || BWtune || freqkeypadtune || freqBandPicker || afscreen || rdsstatscreen || scandxmode) return;
+  if (menu || BWtune || freqkeypadtune || afscreen || rdsstatscreen || scandxmode) return;
   if (batteryWarningTimer != 0 && millis() - batteryWarningTimer < TIMER_BATTERY_WARNING_REPEAT) return;
 
   float v = analogReadMilliVolts(BATTERY_PIN) * 0.002; // assume a half divider
@@ -4627,6 +4638,7 @@ void MuteScreen(bool setting) {
 }
 
 void DefaultSettings() {
+  EEPROM.writeByte(EE_BYTE_FREQ_KEYPAD, 1);
   EEPROM.writeByte(EE_BYTE_CHECKBYTE, EE_CHECKBYTE_VALUE);
   EEPROM.writeUInt(EE_UINT16_FREQUENCY_FM, 10000);
   EEPROM.writeUInt(EE_UINT16_FREQUENCY_OIRT, FREQ_FM_OIRT_START);
@@ -4912,6 +4924,8 @@ void cancelDXScan() {
 }
 
 void endMenu() {
+  CancelSetupMenu();
+  EEPROM.writeByte(EE_BYTE_FREQ_KEYPAD, freqKeypadEnabled);
   radio.clearRDS(fullsearchrds);
   menu = false;
   menuopen = false;
@@ -5105,7 +5119,12 @@ void rabbitearssend () {
   if (RabbitearsClient.connect("rabbitears.info", 80)) {
     String payload = RabbitearsHeader + json.length() + "\r\n\r\n" + json;
     RabbitearsClient.print(payload);
+#if ESP_ARDUINO_VERSION_MAJOR >= 3
     RabbitearsClient.clear();
+#else
+    // Arduino-ESP32 2.x calls receive-buffer clearing flush().
+    RabbitearsClient.flush();
+#endif
     RabbitearsClient.stop();
   }
 }
@@ -5434,6 +5453,7 @@ void ShowNum(int val, int color, int colorSmooth) {
 }
 
 byte FindBandMatches(int temp, byte* outBands, int* outFreqs) {
+  if (temp <= 0 || temp > 99999) return 0;
   byte candidates[5] = { BAND_FM, BAND_OIRT, BAND_LW, BAND_MW, BAND_SW };
   byte count = 0;
 
@@ -5493,7 +5513,7 @@ void ApplyBandMatch(byte b, int freq) {
   if (RDSSPYTCP) RemoteClient.print("G:\r\nRESET-------\r\n\r\n");
 }
 
-// Returns 0 = rejected, 1 = applied, 2 = ambiguous (band picker popup opened)
+// Returns 0 = rejected, 1 = applied, 2 = editor opened for an ambiguous entry.
 int TuneFreq(int temp) {
   aftest = true;
   aftimer = millis();
@@ -5510,33 +5530,144 @@ int TuneFreq(int temp) {
     return 0;
   }
 
-  if (count == 1) {
-    ApplyBandMatch(matchBands[0], matchFreqs[0]);
-    return 1;
-  }
-
-  freqPickerCount = count;
+  // Physical direct tuning prefers the current band (e.g. LW 153 kHz).
   for (byte i = 0; i < count; i++) {
-    freqPickerBands[i] = matchBands[i];
-    freqPickerFreqs[i] = matchFreqs[i];
+    if (matchBands[i] == band || count == 1) {
+      ApplyBandMatch(matchBands[i], matchFreqs[i]);
+      return 1;
+    }
   }
-  freqBandPicker = true;
-  BuildFreqBandPicker();
+  OpenFreqInput(temp);
+  freqInputBand = matchBands[0];
+  showFreqKeypad();
   return 2;
 }
 
+void CloseFreqInput() {
+  freqInputReleaseButtons = ReadFreqInputButtons();
+  freqkeypadtune = false;
+  freq_in = 0;
+  rotary = 0;
+  rotarycounter = 0;
+  touchrepeat = false;
+  screensavertimer = millis();
+  tottimer = millis();
+  BuildDisplay();
+  SelectBand();
+}
+
 void FreqKeypadConfirm() {
-  if (freq_in == 0) return;
-  int result = TuneFreq(freq_in);
-  if (result == 1) {
-    freqkeypadtune = false;
-    freq_in = 0;
-    BuildDisplay();
-    SelectBand();
-  } else if (result == 0) {
-    ShowNum(freq_in, SignificantColor, SignificantColorSmooth);
-  } else {
-    freq_in = 0;
+  byte bands[5];
+  int freqs[5];
+  byte count = FindBandMatches(freq_in, bands, freqs);
+  for (byte i = 0; i < count; i++) {
+    if (bands[i] != freqInputBand) continue;
+    aftest = true;
+    aftimer = millis();
+    ApplyBandMatch(bands[i], freqs[i]);
+    memtune = false;
+    CloseFreqInput();
+    store = true;
+    if (XDRGTKUSB || XDRGTKTCP) {
+      if (band == BAND_FM) DataPrint("M0\nT" + String(frequency * 10) + "\n");
+      else if (band == BAND_OIRT) DataPrint("M0\nT" + String(frequency_OIRT * 10) + "\n");
+      else DataPrint("M1\nT" + String(frequency_AM) + "\n");
+    }
+    return;
+  }
+  // Invalid or empty input stays editable, without changing the tuner.
+  showFreqKeypad();
+  tft.drawRect(4, 30, 312, 34, SignificantColor);
+  if (edgebeep) EdgeBeeper();
+}
+
+byte ReadFreqInputButtons() {
+  return (digitalRead(ROTARY_BUTTON) == LOW ? 1 : 0)
+       | (digitalRead(MODEBUTTON) == LOW ? 2 : 0)
+       | (digitalRead(BANDBUTTON) == LOW ? 4 : 0)
+       | (digitalRead(BWBUTTON) == LOW ? 8 : 0);
+}
+
+void OpenFreqInput(int value) {
+  tottimer = millis();
+  freq_in = value;
+  freqInputBand = band == BAND_AIR ? static_cast<byte>(BAND_SW) : band;
+  freqKeyFocus = 20; // OK; band can also be changed with the BAND button.
+  freqInputButtons = ReadFreqInputButtons();
+  freqInputRawButtons = freqInputButtons;
+  freqInputButtonsChanged = millis();
+  rotary = 0;
+  rotarycounter = 0;
+  touchrepeat = false;
+  freqkeypadtune = true;
+  BuildFreqKeypad();
+}
+
+void FreqInputNumber(int num) {
+  tottimer = millis();
+  if (num >= 0 && num <= 9) {
+    if (freq_in < 10000) freq_in = freq_in * 10 + num;
+    showFreqKeypad();
+  } else if (num == 13) FreqKeypadConfirm();
+  else if (num == 127) CloseFreqInput();
+}
+
+void FreqInputAction(byte focus) {
+  tottimer = millis();
+  if (focus < 5) {
+    freqInputBand = freqInputBands[focus];
+    showFreqKeypad();
+    return;
+  }
+  switch (focus - 5) {
+    case 0: case 1: case 2: FreqInputNumber(focus - 4); break;
+    case 4: case 5: case 6: FreqInputNumber(focus - 5); break;
+    case 8: case 9: case 10: FreqInputNumber(focus - 6); break;
+    case 3: CloseFreqInput(); break;
+    case 12: freq_in = 0; showFreqKeypad(); break;
+    case 13: FreqInputNumber(0); break;
+    case 14: freq_in /= 10; showFreqKeypad(); break;
+    case 15: FreqKeypadConfirm(); break;
+  }
+}
+
+void PollFreqInput() {
+  if (rotary != 0) {
+    tottimer = millis();
+    int dir = rotary == -1 ? 1 : -1;
+    rotary = 0;
+    rotarycounter = 0;
+    do {
+      freqKeyFocus = (freqKeyFocus + dir + 21) % 21;
+    } while (!FreqInputControlVisible(freqKeyFocus));
+    showFreqKeypad();
+  }
+  byte buttons = ReadFreqInputButtons();
+  if (buttons != freqInputRawButtons) {
+    freqInputRawButtons = buttons;
+    freqInputButtonsChanged = millis();
+  }
+  byte pressed = 0;
+  if (millis() - freqInputButtonsChanged >= 30) {
+    pressed = buttons & ~freqInputButtons;
+    freqInputButtons = buttons;
+  }
+  if (pressed) tottimer = millis();
+  if (pressed & 2) CloseFreqInput();
+  else if (pressed & 1) FreqInputAction(freqKeyFocus);
+  else if (pressed & 4) {
+    byte i = 0;
+    while (i < 5 && freqInputBands[i] != freqInputBand) i++;
+    freqInputBand = freqInputBands[(i + 1) % 5];
+    showFreqKeypad();
+  } else if (pressed & 8) {
+    freq_in /= 10;
+    showFreqKeypad();
+  }
+  // Consume the key even on exit, preventing it from reaching normal tuning.
+  if (digitalRead(EXT_IRQ) == LOW) {
+    int num = GetNum();
+    if (freqkeypadtune && num != -1) FreqInputNumber(num);
   }
 }
 
@@ -5658,7 +5789,7 @@ void NumpadProcess(int num) {
       } else {
         ShowFreq(0);
       }
-      freq_in = 0;
+      if (!freqkeypadtune) freq_in = 0;
     } else {
       if (freq_in / 10000 == 0) {
         freq_in = freq_in * 10 + num;
@@ -5791,3 +5922,49 @@ const char* textUI(uint16_t number) {
   }
 }
 
+
+void ApplyScreenFlip(byte flipped) {
+  if (displayflip == flipped) return;
+  displayflip = flipped;
+#ifdef ARS
+  tft.setRotation(displayflip ? 2 : 0);
+#else
+  tft.setRotation(displayflip ? 1 : 3);
+#endif
+  if (hardwaremodel == PORTABLE_TOUCH_ILI9341) {
+    // A 180-degree turn reverses both axes, preserving the measured raw ranges.
+    TouchCalData[4] ^= 0x06;
+    tft.setTouch(TouchCalData);
+    EEPROM.writeUInt(EE_UINT16_CALTOUCH5, TouchCalData[4]);
+  }
+  EEPROM.writeByte(EE_BYTE_DISPLAYFLIP, displayflip);
+  EEPROM.commit();
+}
+
+void WaitSetupControlsReleased() {
+  while (digitalRead(ROTARY_BUTTON) == LOW || digitalRead(BWBUTTON) == LOW ||
+         digitalRead(MODEBUTTON) == LOW || digitalRead(BANDBUTTON) == LOW) delay(10);
+  if (hardwaremodel == PORTABLE_TOUCH_ILI9341) {
+    while (tft.getTouchRawZ() > 100) delay(10);
+  }
+  rotary = 0;
+  rotarycounter = 0;
+}
+
+void RunTouchCalibration() {
+  if (hardwaremodel != PORTABLE_TOUCH_ILI9341) return;
+  SetupPrompt(348);
+  WaitSetupControlsReleased();
+  DrawTouchCalibrationScreen();
+  tft.calibrateTouch(TouchCalData, PrimaryColor, BackgroundColor, 30);
+  EEPROM.writeUInt(EE_UINT16_CALTOUCH1, TouchCalData[0]);
+  EEPROM.writeUInt(EE_UINT16_CALTOUCH2, TouchCalData[1]);
+  EEPROM.writeUInt(EE_UINT16_CALTOUCH3, TouchCalData[2]);
+  EEPROM.writeUInt(EE_UINT16_CALTOUCH4, TouchCalData[3]);
+  EEPROM.writeUInt(EE_UINT16_CALTOUCH5, TouchCalData[4]);
+  EEPROM.commit();
+  tft.setTouch(TouchCalData);
+  WaitSetupControlsReleased();
+  screensavertimer = millis();
+  tottimer = millis();
+}
